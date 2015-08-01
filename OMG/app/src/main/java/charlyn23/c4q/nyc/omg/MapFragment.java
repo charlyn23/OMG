@@ -8,11 +8,15 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 
+import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -40,7 +44,14 @@ public class MapFragment extends SupportMapFragment {
         googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!").snippet("Consider yourself located"));
     }
 
-    public void loadPlaces(){
+    public void loadPlaces(List<Places> placesList){
+
+        placesList=new ArrayList<>();
+
+        for(Places provider:placesList){
+
+        }
+
 
     }
 }
