@@ -7,4 +7,5 @@
     <dimen name="emergency_buttons_height">100dp</dimen>
     <dimen name="emergency_buttons_text_size">16sp</dimen>
     <dimen name="settings_button_width_height">40dp</dimen>
+    <dimen name="list_item_title_size">18sp</dimen>
 </resources>
