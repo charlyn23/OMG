@@ -3,6 +3,7 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+<<<<<<< HEAD
     <string name="main_title">What\'s your emergency?</string>
     <string name="not_safe">I\'m Not Safe </string>
     <string name="food">I Need Food</string>
@@ -18,4 +19,7 @@
 
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+=======
+    <string name="title_activity_settings">SettingsActivity</string>
+>>>>>>> 37f7af534d0e794b474032e2bd3a46dd5520dbf6
 </resources>

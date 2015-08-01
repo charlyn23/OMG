@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
 <<<<<<< HEAD
+<<<<<<< HEAD
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -11,6 +12,10 @@
   <component name="EntryPointsManager">
     <entry_points version="2.0" />
 >>>>>>> f0b3095e447c1fd21632040d1eabddec486abd21
+=======
+  <component name="EntryPointsManager">
+    <entry_points version="2.0" />
+>>>>>>> 37f7af534d0e794b474032e2bd3a46dd5520dbf6
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />

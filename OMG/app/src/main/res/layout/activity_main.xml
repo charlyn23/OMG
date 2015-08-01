@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,6 +8,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity">
 
+<<<<<<< HEAD
     <LinearLayout
         android:id="@+id/title_and_settings_icon"
         android:layout_width="match_parent"
@@ -176,4 +178,13 @@
             android:textStyle="bold"
             android:textSize="@dimen/emergency_buttons_text_size"/>
     </LinearLayout>
+=======
+
+    <ImageButton
+        android:src="@android:drawable/ic_menu_preferences"
+        android:layout_alignParentRight="true"
+        android:onClick="settingsOnClick"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+>>>>>>> 37f7af534d0e794b474032e2bd3a46dd5520dbf6
 </RelativeLayout>
