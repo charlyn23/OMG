@@ -117,7 +117,6 @@ public class MappingImmediateHelp extends ActionBarActivity {
                 return mapListFragment;
             }
         }
-
         @Override
         public int getCount() {
             return 2;
