@@ -1,5 +1,6 @@
 package charlyn23.c4q.nyc.omg;
 
+import android.widget.Toast;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
@@ -24,11 +25,13 @@ import charlyn23.c4q.nyc.omg.model.Location;
 import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
-
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
     public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
-TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +39,6 @@ TextView textView;
         setContentView(R.layout.activity_main);
 
         RequestQueue queue = Volley.newRequestQueue(this);
-
-         final TextView textView = (TextView)findViewById(R.id.textView);
-
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, AB_URL,
                 new Response.Listener<String>() {
 
@@ -79,10 +78,6 @@ TextView textView;
                             }
                         }
                     }
-
-
-
-
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
@@ -93,25 +88,9 @@ TextView textView;
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    public void settingsOnClick(View view) {
+        Intent settingsIntent =  new Intent(this, SettingsActivity.class);
+        startActivity(settingsIntent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }
