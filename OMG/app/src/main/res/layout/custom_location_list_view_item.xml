@@ -27,7 +27,8 @@
             android:gravity="center_horizontal"
             android:layout_height="wrap_content"
             android:text="Address goes here"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="#ff194cff" />
 
 
         <TextView
@@ -38,8 +39,8 @@
             android:layout_below="@+id/location_address_field"
             android:text="(000)000-0000"
             android:textSize="16sp"
-            android:textColor="#ff194cff"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#ffff132a" />
 
         <TextView
             android:id="@+id/location_hours_tag"
@@ -49,7 +50,7 @@
             android:layout_below="@id/location_phone_number"
             android:text="Hours"
             android:textStyle="bold"
-            android:textSize="20sp"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/location_hours"

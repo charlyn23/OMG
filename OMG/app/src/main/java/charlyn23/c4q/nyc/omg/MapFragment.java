@@ -48,8 +48,8 @@ public class MapFragment extends SupportMapFragment {
         double longitude = myLocation.getLongitude();
         LatLng latLng = new LatLng(latitude, longitude);
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        googleMap.animateCamera(CameraUpdateFactory.zoomTo(14));
-        googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!").snippet("Consider yourself located"));
+        googleMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!").snippet("Consider yourself located"));
     }
 
     public void loadPlaces(List<Program> programsList){
