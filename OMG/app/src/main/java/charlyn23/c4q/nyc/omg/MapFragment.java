@@ -63,7 +63,7 @@ public class MapFragment extends SupportMapFragment {
 
                 googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(lat, lon))
-                        .title(programList1.get(i).getName()).snippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact()+"\nAddress:"+programList1.get(i).getOffices().get(0).getAddress1()));
+                        .title(programList1.get(i).getName()).snippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact()));
 
             }
         }
