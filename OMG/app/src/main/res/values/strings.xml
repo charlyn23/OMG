@@ -7,7 +7,7 @@
     <string name="app_github_url"><![CDATA[https://github.com/ogaclejapan/ArcLayout]]></string>
 
     <string name="action_settings">Settings</string>
-    <string name="main_title">What\'s your emergency?</string>
+    <string name="main_title">Everything is going to be OK.</string>
     <string name="not_safe">I\'m Not Safe </string>
     <string name="food">I Need Food</string>
     <string name="hurt">I\'m Hurt</string>
@@ -53,4 +53,9 @@
     <string name="note_advanced_tumblr">Try pressing the button</string>
     <string name="note_advanced_path">Try pressing the button</string>
 
+    <string name="title_activity_mapping_immediate_food">MappingImmediateFood</string>
+    <string name="title_activity_mapping_missing_person">MappingMissingPerson</string>
+    <string name="title_activity_mapping_immediate_shelter">MappingImmediateShelter</string>
+    <string name="title_activity_mapping_depressed">MappingDepressed</string>
+    <string name="title_activity_mapping_emergency_money">MappingEmergencyMoney</string>
 </resources>
