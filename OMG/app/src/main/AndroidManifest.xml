@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="charlyn23.c4q.nyc.omg" >
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -15,7 +12,6 @@
     <permission android:name="your_package_name.permission.MAPS_RECEIVE" android:protectionLevel="signature"/>
     <uses-permission  android:name="your_package_name.permission.MAPS_RECEIVE"/>
     <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
-
 
     <application
         android:allowBackup="true"
@@ -35,7 +31,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-<<<<<<< HEAD
 
         <activity
             android:name=".MappingImmediateHelp"
@@ -45,12 +40,10 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyBYK_cEP8YIVWhufSTuRljghKFLrHTtKAs"/>
-=======
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings" >
         </activity>
->>>>>>> 37f7af534d0e794b474032e2bd3a46dd5520dbf6
     </application>
 
     <uses-feature

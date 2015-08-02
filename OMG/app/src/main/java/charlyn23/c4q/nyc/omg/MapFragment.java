@@ -28,6 +28,7 @@ public class MapFragment extends SupportMapFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
+
         GoogleMap googleMap = getMap();
         googleMap.setMyLocationEnabled(true);
 
