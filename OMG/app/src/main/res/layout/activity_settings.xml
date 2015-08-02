@@ -11,19 +11,19 @@
 
     <TextView
         android:text="Settings"
-        android:textStyle="bold"
         android:textSize="70dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin" />
 
     <TextView
         android:text="User Info"
-        android:textStyle="bold"
         android:textSize="30dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin" />
 
     <RelativeLayout
         android:padding="10dp"
@@ -33,7 +33,8 @@
         <TextView
             android:id="@+id/space_tv"
             android:layout_width="10dp"
-            android:layout_height="10dp" />
+            android:layout_height="10dp"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/name_tv"
@@ -41,7 +42,8 @@
             android:textSize="20dp"
             android:layout_below="@id/space_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <EditText
             android:id="@+id/name_et"
@@ -51,7 +53,8 @@
             android:layout_toRightOf="@id/name_tv"
             android:layout_alignBottom="@+id/name_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/age_tv"
@@ -59,7 +62,8 @@
             android:textSize="20dp"
             android:layout_below="@+id/name_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <EditText
             android:id="@+id/age_et"
@@ -68,7 +72,8 @@
             android:layout_toRightOf="@id/age_tv"
             android:layout_alignBottom="@+id/age_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/gender_tv"
@@ -76,7 +81,8 @@
             android:textSize="20dp"
             android:layout_below="@+id/age_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <EditText
             android:id="@+id/gender_et"
@@ -84,7 +90,8 @@
             android:layout_toRightOf="@id/gender_tv"
             android:layout_alignBottom="@+id/gender_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/zipcode_tv"
@@ -92,7 +99,8 @@
             android:textSize="20dp"
             android:layout_below="@+id/gender_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <EditText
             android:id="@+id/zipcode_et"
@@ -101,7 +109,8 @@
             android:layout_toRightOf="@id/zipcode_tv"
             android:layout_alignBottom="@+id/zipcode_tv"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
     </RelativeLayout>
 
@@ -117,13 +126,15 @@
             android:onClick="editOnClick"
             android:background="@drawable/custom_background_button"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/btn_space_tv"
             android:layout_toRightOf="@id/edit_user_info_Btn"
             android:layout_width="10dp"
-            android:layout_height="0dp" />
+            android:layout_height="0dp"
+            android:fontFamily="sans-serif-thin" />
 
         <Button
             android:id="@+id/save_user_info_Btn"
@@ -133,7 +144,8 @@
             android:background="@drawable/custom_background_button"
             android:layout_toRightOf="@id/btn_space_tv"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
     </RelativeLayout>
 
@@ -142,17 +154,18 @@
         android:id="@+id/sos_header"
         android:text="S.O.S Contacts"
         android:textSize="30dp"
-        android:textStyle="bold"
         android:padding="25dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin" />
 
     <LinearLayout
         android:id="@+id/sos_linear_layout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-thin" >
 
         <ImageButton
             android:id="@+id/emergency_contact_1"
@@ -162,7 +175,9 @@
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="115dp" />
+            android:layout_height="115dp"
+            android:fontFamily="sans-serif-thin"
+            />
 
         <ImageButton
             android:id="@+id/emergency_contact_2"
@@ -171,7 +186,8 @@
             android:background="@drawable/round_button"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="115dp" />
+            android:layout_height="115dp"
+            android:fontFamily="sans-serif-thin" />
 
         <ImageButton
             android:id="@+id/emergency_contact_3"
@@ -195,7 +211,8 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/emergency_contact_2_info_tv"
@@ -203,7 +220,8 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
         <TextView
             android:id="@+id/emergency_contact_3_info_tv"
@@ -211,7 +229,8 @@
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
 
     </LinearLayout>
 
