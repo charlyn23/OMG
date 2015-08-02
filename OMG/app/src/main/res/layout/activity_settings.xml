@@ -1,5 +1,4 @@
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -21,7 +20,7 @@
     <TextView
         android:text="User Info"
         android:textStyle="bold"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:layout_gravity="center"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
@@ -104,16 +103,32 @@
 
     </RelativeLayout>
 
-    <Button
-        android:text="Save"
-        android:layout_gravity="end"
+    <RelativeLayout
+        android:layout_gravity="right"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/edit_user_info_Btn"
+            android:text="Edit"
+            android:onClick="editOnClick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/save_user_info_Btn"
+            android:onClick="saveOnClick"
+            android:text="Save"
+            android:layout_toRightOf="@id/edit_user_info_Btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </RelativeLayout>
 
     <TextView
-        android:text="Contacts"
+        android:text="S.O.S Contacts"
         android:textStyle="bold"
-        android:textSize="40dp"
+        android:textSize="30dp"
         android:layout_gravity="center"
         android:padding="10dp"
         android:layout_width="wrap_content"
@@ -126,6 +141,7 @@
 
         <ImageButton
             android:id="@+id/emergency_contact_1"
+            android:onClick="emergencyContactOneOnClick"
             android:src="@android:drawable/ic_menu_add"
             android:background="@drawable/round_button"
             android:layout_gravity="center"
@@ -135,6 +151,7 @@
 
         <ImageButton
             android:id="@+id/emergency_contact_2"
+            android:onClick="emergencyContactTwoOnClick"
             android:src="@android:drawable/ic_menu_add"
             android:background="@drawable/round_button"
             android:layout_gravity="center"
@@ -144,6 +161,7 @@
 
         <ImageButton
             android:id="@+id/emergency_contact_3"
+            android:onClick="emergencyContactThreeOnClick"
             android:src="@android:drawable/ic_menu_add"
             android:background="@drawable/round_button"
             android:layout_gravity="center"
