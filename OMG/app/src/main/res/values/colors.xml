@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="emergency_buttons_text_color">#FFFFFF</color>
+    <color name="steel">#8D91AC</color>
 </resources>

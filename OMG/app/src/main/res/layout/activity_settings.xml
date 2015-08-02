@@ -26,14 +26,14 @@
         android:layout_height="wrap_content" />
 
     <RelativeLayout
-        android:padding="20dp"
+        android:padding="10dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <TextView
             android:id="@+id/space_tv"
             android:layout_width="10dp"
-            android:layout_height="20dp" />
+            android:layout_height="10dp" />
 
         <TextView
             android:id="@+id/name_tv"
@@ -45,7 +45,9 @@
 
         <EditText
             android:id="@+id/name_et"
-            android:maxLength="30"
+            android:maxLength="20"
+            android:maxLines="1"
+            android:gravity="top|left"
             android:layout_toRightOf="@id/name_tv"
             android:layout_alignBottom="@+id/name_tv"
             android:layout_width="match_parent"
@@ -111,30 +113,43 @@
         <Button
             android:id="@+id/edit_user_info_Btn"
             android:text="Edit"
+            android:textColor="#fff"
             android:onClick="editOnClick"
+            android:background="@drawable/custom_background_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
+        <TextView
+            android:id="@+id/btn_space_tv"
+            android:layout_toRightOf="@id/edit_user_info_Btn"
+            android:layout_width="10dp"
+            android:layout_height="0dp" />
+
         <Button
             android:id="@+id/save_user_info_Btn"
-            android:onClick="saveOnClick"
             android:text="Save"
-            android:layout_toRightOf="@id/edit_user_info_Btn"
+            android:textColor="#fff"
+            android:onClick="saveOnClick"
+            android:background="@drawable/custom_background_button"
+            android:layout_toRightOf="@id/btn_space_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
 
+
     <TextView
+        android:id="@+id/sos_header"
         android:text="S.O.S Contacts"
-        android:textStyle="bold"
         android:textSize="30dp"
+        android:textStyle="bold"
+        android:padding="25dp"
         android:layout_gravity="center"
-        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
     <LinearLayout
+        android:id="@+id/sos_linear_layout"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
@@ -147,7 +162,7 @@
             android:gravity="center_vertical|center_horizontal"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="125dp" />
+            android:layout_height="115dp" />
 
         <ImageButton
             android:id="@+id/emergency_contact_2"
@@ -156,7 +171,7 @@
             android:background="@drawable/round_button"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="125dp" />
+            android:layout_height="115dp" />
 
         <ImageButton
             android:id="@+id/emergency_contact_3"
@@ -165,7 +180,7 @@
             android:background="@drawable/round_button"
             android:layout_weight="1"
             android:layout_width="0dp"
-            android:layout_height="125dp" />
+            android:layout_height="115dp" />
 
     </LinearLayout>
 
@@ -176,6 +191,7 @@
 
         <TextView
             android:id="@+id/emergency_contact_1_info_tv"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -183,6 +199,7 @@
 
         <TextView
             android:id="@+id/emergency_contact_2_info_tv"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"
@@ -190,6 +207,7 @@
 
         <TextView
             android:id="@+id/emergency_contact_3_info_tv"
+            android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="0dp"

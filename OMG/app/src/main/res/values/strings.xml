@@ -20,4 +20,9 @@
 <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_settings">SettingsActivity</string>
+    <string name="title_activity_mapping_immediate_food">MappingImmediateFood</string>
+    <string name="title_activity_mapping_missing_person">MappingMissingPerson</string>
+    <string name="title_activity_mapping_immediate_shelter">MappingImmediateShelter</string>
+    <string name="title_activity_mapping_depressed">MappingDepressed</string>
+    <string name="title_activity_mapping_emergency_money">MappingEmergencyMoney</string>
 </resources>
