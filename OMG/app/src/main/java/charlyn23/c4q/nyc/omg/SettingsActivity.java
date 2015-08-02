@@ -13,7 +13,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-//todo: use shared preferences to save user info.
+// Some of the icons used in Buttons were provided by https://creativecommons.org/licenses/by/4.0/
+
 //todo: Possibly create a user info class to store all data and use with other activities.
 
 public class SettingsActivity extends Activity {
@@ -161,12 +162,11 @@ public class SettingsActivity extends Activity {
         builder.setPositiveButton("Add Contact", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                //todo: add code to save to shared Preferences Here!
-                //todo: set text for imagebtn emergency contact one to name of contact
                 editor = prefs.edit();
                 editor.putString(ContactName, nameDialogueET.getText().toString()).apply();
                 editor.putLong(ContactNumber, Long.parseLong(phoneDialogueET.getText().toString())).apply();
 
+                //sets contact info underneath imageButton
                 setEmergencyContactInfoDisplay(ContactName);
             }
         });
