@@ -2,10 +2,6 @@ package charlyn23.c4q.nyc.omg;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -20,7 +16,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
 import java.util.List;
+
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
@@ -74,7 +72,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, MappingMissingPerson.class);
+                Intent intent=new Intent(MainActivity.this, MappingImmediateHelp.class);
                 startActivity(intent);            }
         };
 
