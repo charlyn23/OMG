@@ -2,17 +2,10 @@ package charlyn23.c4q.nyc.omg;
 
 import android.content.Intent;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.widget.Toast;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,6 +15,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
+import java.sql.SQLException;
 import java.util.List;
 
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
@@ -30,9 +24,7 @@ import charlyn23.c4q.nyc.omg.model.Location;
 import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
+
 import android.view.View;
 
 public class MainActivity extends ActionBarActivity {
@@ -42,6 +34,8 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
         Intent intent= new Intent(this, MappingImmediateHelp.class);
         startActivity(intent);
