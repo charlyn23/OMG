@@ -2,4 +2,5 @@
 <resources>
     <color name="emergency_buttons_text_color">#FFFFFF</color>
     <color name="steel">#8D91AC</color>
+    <color name="darkstel">#757A9C</color>
 </resources>
