@@ -3,11 +3,13 @@ package charlyn23.c4q.nyc.omg;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import android.telephony.SmsManager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -34,6 +36,7 @@ public class MainActivity extends Activity {
     int zipCode;
     String AB_URL;
     Button not_safe_button;
+    Button mNineOneOne, mTextForHelp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +53,9 @@ public class MainActivity extends Activity {
         Button money_button= (Button)findViewById(R.id.money_button);
         Button pet_help_button= (Button)findViewById(R.id.pet_help_button);
         Button missing_person_button= (Button)findViewById(R.id.missing_person_button);
+
+
+
 
 
         View.OnClickListener notSafeListener = new View.OnClickListener() {
@@ -191,5 +197,42 @@ public class MainActivity extends Activity {
         Intent settingsIntent =  new Intent(this, SettingsActivity.class);
         startActivity(settingsIntent);
     }
+
+
+    //Sends an SMS message to another device.
+
+    public void textAllYourFamilyMember(View view){
+        String text = "Please help me, I really need you guys.";
+
+
+        String firstFam = "6465123876";
+        String secondFam = "6463349648";
+        String thirdFam = "9173474355";
+
+        sendSMS(firstFam,text);
+        sendSMS(secondFam, text);
+        sendSMS(thirdFam,text);
+
+    }
+
+    //pull up the 911 ready to call.
+
+    public void call911(View view){
+        String policeAndFireDep = "911";
+
+        Intent callNineOneOne = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + policeAndFireDep));
+
+
+        if(callNineOneOne.resolveActivity(getPackageManager()) != null){
+            startActivity(callNineOneOne);
+        }
+    }
+
+
+    private void sendSMS(String phoneNumber, String message){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message, null, null);
+    }
+
 
 }
