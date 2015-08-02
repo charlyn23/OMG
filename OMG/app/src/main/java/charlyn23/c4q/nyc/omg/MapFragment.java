@@ -12,6 +12,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -27,12 +28,13 @@ public class MapFragment extends SupportMapFragment {
 
     List<Program> programList1=new ArrayList<>();
     GoogleMap googleMap;
+    MapListFragment mapListFragment;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
+        mapListFragment= new MapListFragment();
         googleMap = getMap();
         googleMap.setMyLocationEnabled(true);
 
@@ -61,13 +63,18 @@ public class MapFragment extends SupportMapFragment {
                 double lat = programList1.get(i).getOffices().get(0).getLocation().getLatitude();
                 double lon = programList1.get(i).getOffices().get(0).getLocation().getLongitude();
 
-                googleMap.addMarker(new MarkerOptions()
+                Marker marker=googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(lat, lon))
-                        .title(programList1.get(i).getName()).snippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact()));
+                        .title(programList1.get(i).getName()));
+                //TODO check if valid phone Number!!!
+                marker.setSnippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact());
+                marker.isInfoWindowShown();
 
             }
         }
 
+        //TODO fix title pages
+        //TODO onMarkerClick update listView
 
     }
 }
