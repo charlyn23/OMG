@@ -27,4 +27,7 @@
     <color name="path_black">#403B36</color>
     <color name="path_green">#5FB336</color>
     <color name="path_purple">#49098A</color>
+    <color name="steel">#8D91AC</color>
+    <color name="darkstel">#757A9C</color>
+
 </resources>
