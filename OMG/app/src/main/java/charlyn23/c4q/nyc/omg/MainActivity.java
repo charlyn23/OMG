@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, MappingMissingPerson.class);
+                Intent intent=new Intent(MainActivity.this, MappingImmediateHelp.class);
                 startActivity(intent);            }
         };
 
