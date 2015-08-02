@@ -3,7 +3,8 @@ package charlyn23.c4q.nyc.omg.model;
 import java.util.List;
 
 /**
- * Created by charlynbuchanan on 8/1/15.
+ * Created by charlynbuchanan on 8/1/15. All model classes are specific to elements in the Json. They must be identified
+ * and equipped with getters so that Gson can know which items to grab.
  */
 public class Program {
 
