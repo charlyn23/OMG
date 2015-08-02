@@ -29,6 +29,7 @@ public class MapFragment extends SupportMapFragment {
     List<Program> programList1=new ArrayList<>();
     GoogleMap googleMap;
     MapListFragment mapListFragment;
+    Location myLocation;
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
@@ -41,7 +42,7 @@ public class MapFragment extends SupportMapFragment {
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
-        Location myLocation = locationManager.getLastKnownLocation(provider);
+        myLocation = locationManager.getLastKnownLocation(provider);
         googleMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         double latitude = myLocation.getLatitude();
         double longitude = myLocation.getLongitude();
@@ -60,12 +61,16 @@ public class MapFragment extends SupportMapFragment {
 
             for (int i = 0; i < programList1.size(); i++) {
 
-                double lat = programList1.get(i).getOffices().get(0).getLocation().getLatitude();
-                double lon = programList1.get(i).getOffices().get(0).getLocation().getLongitude();
+                float lat = programList1.get(i).getOffices().get(0).getLocation().getLatitude();
+                float lon = programList1.get(i).getOffices().get(0).getLocation().getLongitude();
+
 
                 Marker marker=googleMap.addMarker(new MarkerOptions()
                         .position(new LatLng(lat, lon))
                         .title(programList1.get(i).getName()));
+
+
+
                 //TODO check if valid phone Number!!!
                 marker.setSnippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact());
                 marker.isInfoWindowShown();
