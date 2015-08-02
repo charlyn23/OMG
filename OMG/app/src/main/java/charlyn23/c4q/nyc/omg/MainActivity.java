@@ -34,13 +34,8 @@ import charlyn23.c4q.nyc.omg.model.SearchResult;
 import android.view.View;
 
 public class MainActivity extends Activity {
-//    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
-
-    final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
-    String url2;
+    private final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
     int zipCode;
-    String AB_URL;
-    Button not_safe_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,7 +76,7 @@ public class MainActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(MainActivity.this, MappingMissingPerson.class);
+                Intent intent=new Intent(MainActivity.this, MappingImmediateHelp.class);
                 startActivity(intent);            }
         };
 
@@ -109,7 +104,6 @@ public class MainActivity extends Activity {
                 Intent intent=new Intent(MainActivity.this, MappingDepressed.class);
                 startActivity(intent);
             }
-
         };
         mental_button.setOnClickListener(emotionalListener);
 
@@ -120,12 +114,6 @@ public class MainActivity extends Activity {
                 startActivity(intent);            }
         };
         money_button.setOnClickListener(moneyListener);
-
-//        Intent intent= new Intent(this, MappingImmediateHelp.class);
-//        startActivity(intent);
-
-
-
     }
 
     public void getData(String url1, int zipcode, String url2) {
@@ -162,7 +150,6 @@ public class MainActivity extends Activity {
                             for (Offices offices : program.getOffices()) {
                                 Location location = offices.getLocation();
                                 Hours hours = offices.getHours();
-
                             }
                         }
                     }
