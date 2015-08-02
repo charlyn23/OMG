@@ -19,7 +19,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -27,21 +26,16 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-
 import java.util.List;
-
 import charlyn23.c4q.nyc.omg.db.ResourcesHelper;
-
 import java.sql.SQLException;
 import java.util.List;
-
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
 import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
-
 import android.view.View;
 
 public class MainActivity extends Activity {
@@ -50,12 +44,11 @@ public class MainActivity extends Activity {
 
     ResourcesHelper helper = ResourcesHelper.getInstance(getApplicationContext());
     SQLiteDatabase mDatabase = helper.getWritableDatabase();
-//    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
 
-    final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
     String url2;
-    int zipCode;
     String AB_URL;
+    private final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
+    int zipCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -131,7 +124,6 @@ public class MainActivity extends Activity {
                 Intent intent = new Intent(MainActivity.this, MappingDepressed.class);
                 startActivity(intent);
             }
-
         };
         mental_button.setOnClickListener(emotionalListener);
 
@@ -204,7 +196,6 @@ public class MainActivity extends Activity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-//                Toast.makeText(getApplicationContext(), "Please enter a valid zip code", Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(stringRequest);
