@@ -32,7 +32,10 @@
 
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,36 +44,52 @@
         </activity>
         <activity
             android:name=".MappingImmediateHelp"
-            android:label="@string/title_activity_mapping_immediate_help" >
+            android:label="@string/title_activity_mapping_immediate_help"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyBYK_cEP8YIVWhufSTuRljghKFLrHTtKAs" />
+            android:value="AIzaSyBYK_cEP8YIVWhufSTuRljghKFLrHTtKAs"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden"/>
 
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/title_activity_settings"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingImmediateFood"
-            android:label="@string/title_activity_mapping_immediate_food" >
+            android:label="@string/title_activity_mapping_immediate_food"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingMissingPerson"
-            android:label="@string/title_activity_mapping_missing_person" >
+            android:label="@string/title_activity_mapping_missing_person"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingImmediateShelter"
-            android:label="@string/title_activity_mapping_immediate_shelter" >
+            android:label="@string/title_activity_mapping_immediate_shelter"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingDepressed"
-            android:label="@string/title_activity_mapping_depressed" >
+            android:label="@string/title_activity_mapping_depressed"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingEmergencyMoney"
-            android:label="@string/title_activity_mapping_emergency_money" >
+            android:label="@string/title_activity_mapping_emergency_money"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboardHidden">
         </activity>
     </application>
 
