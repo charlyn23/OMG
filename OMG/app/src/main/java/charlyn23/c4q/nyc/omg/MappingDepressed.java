@@ -36,8 +36,9 @@ import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
 
 
-public class MappingImmediateHelp extends ActionBarActivity {
-    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
+public class MappingDepressed extends ActionBarActivity {
+
+    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=psychiatric%20emergency%20services";
     ViewPager viewPager;
     MapFragment mapFragment;
     MapListFragment mapListFragment;

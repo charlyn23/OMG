@@ -8,15 +8,17 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 
-import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import charlyn23.c4q.nyc.omg.model.Program;
 
 
 /**
@@ -24,12 +26,16 @@ import java.util.List;
  */
 public class MapFragment extends SupportMapFragment {
 
+    List<Program> programList1=new ArrayList<>();
+    GoogleMap googleMap;
+    MapListFragment mapListFragment;
+
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-
-        GoogleMap googleMap = getMap();
+        mapListFragment= new MapListFragment();
+        googleMap = getMap();
         googleMap.setMyLocationEnabled(true);
 
         LocationManager locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
@@ -45,14 +51,30 @@ public class MapFragment extends SupportMapFragment {
         googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!").snippet("Consider yourself located"));
     }
 
-    public void loadPlaces(List<Places> placesList){
+    public void loadPlaces(List<Program> programsList){
+        if(programList1!=null) {
+            programList1.clear();
+        }
+        if(programsList!=null) {
+            programList1.addAll(programsList);
 
-        placesList=new ArrayList<>();
+            for (int i = 0; i < programList1.size(); i++) {
 
-        for(Places provider:placesList){
+                double lat = programList1.get(i).getOffices().get(0).getLocation().getLatitude();
+                double lon = programList1.get(i).getOffices().get(0).getLocation().getLongitude();
 
+                Marker marker=googleMap.addMarker(new MarkerOptions()
+                        .position(new LatLng(lat, lon))
+                        .title(programList1.get(i).getName()));
+                //TODO check if valid phone Number!!!
+                marker.setSnippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact());
+                marker.isInfoWindowShown();
+
+            }
         }
 
+        //TODO fix title pages
+        //TODO onMarkerClick update listView
 
     }
 }

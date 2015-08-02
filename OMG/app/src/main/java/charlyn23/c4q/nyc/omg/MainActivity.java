@@ -8,7 +8,18 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.util.Log;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.content.SharedPreferences;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -16,150 +27,186 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
+
 import java.util.List;
+
 import charlyn23.c4q.nyc.omg.db.ResourcesHelper;
+
+import java.sql.SQLException;
+import java.util.List;
+
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
 import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
+
 import android.view.View;
 
-public class MainActivity extends ActionBarActivity {
-    public final String IMMEDIATE_SAFETY_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
-    private final int IMMEDIATE_SAFTEY_DB_ID = 1;
-    private final String FOOD_URL = " https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20food";
-    public final int FOOD_DB_ID = 2;
-    private final String HURT_URL ="https://data.cityofnewyork.us/api/views/f7b6-v6v3/rows.json?accessType=DOWNLOAD";
-    public final int HURT_DB_ID = 3;
-    private final String SHELTER_URL =" https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20shelter";
-    public final int SHELTER_DB_ID = 4;
-    public final String MISSING_URL =" https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=help%20find%20missing%20persons";
-    public final int MISSING_DB_ID = 5;
-    private final String EMOTIONAL_URL =" https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=psychiatric%20emergency%20services";
-    public final int EMOTIONAL_DB_ID = 6;
-    private final String MONEY_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20payments";
-    public final int MONEY_DB_ID = 7;
-
+public class MainActivity extends Activity {
     private String table;
 
 
     ResourcesHelper helper = ResourcesHelper.getInstance(getApplicationContext());
     SQLiteDatabase mDatabase = helper.getWritableDatabase();
+//    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
+
+    final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
+    String url2;
+    int zipCode;
+    String AB_URL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        SettingsActivity settingsActivity = new SettingsActivity();
 
-        if(isNetworkAvailable()){
-            loadInfo(IMMEDIATE_SAFETY_URL);
-            loadInfo(FOOD_URL);
-            loadInfo(HURT_URL);
-            loadInfo(SHELTER_URL);
-            loadInfo(MISSING_URL);
-            loadInfo(EMOTIONAL_URL);
-            loadInfo(MONEY_URL);
-            if(mDatabase != null)
-            Log.d("DATABASE: ", "NOT EMPTY");
-        }else if(!isNetworkAvailable()){
-            loadFromDatabases();
-        }else {
-            Toast.makeText(this,"Connect to Internet to Download information",Toast.LENGTH_SHORT).show();
-        }
+//        Intent intent= new Intent(this, MappingImmediateHelp.class);
+//        startActivity(intent);
+
+        Button not_safe_button = (Button) findViewById(R.id.not_safe_button);
+        Button food_button = (Button) findViewById(R.id.food_button);
+        Button hurt_button = (Button) findViewById(R.id.hurt_button);
+        Button shelter_button = (Button) findViewById(R.id.shelter_button);
+        Button mental_button = (Button) findViewById(R.id.mental_button);
+        Button money_button = (Button) findViewById(R.id.money_button);
+        Button pet_help_button = (Button) findViewById(R.id.pet_help_button);
+        Button missing_person_button = (Button) findViewById(R.id.missing_person_button);
+
+
+        View.OnClickListener notSafeListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingImmediateHelp.class);
+                startActivity(intent);
+            }
+
+        };
+        //not_safe_button.setOnClickListener(notSafeListener);
+
+        View.OnClickListener foodListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingImmediateFood.class);
+                startActivity(intent);
+            }
+        };
+        food_button.setOnClickListener(foodListener);
+
+        Intent intent = new Intent(this, MappingImmediateHelp.class);
+        startActivity(intent);
+        View.OnClickListener hurtListener = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingMissingPerson.class);
+                startActivity(intent);
+            }
+        };
+
+        hurt_button.setOnClickListener(hurtListener);
+        View.OnClickListener missingPersonListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingMissingPerson.class);
+                startActivity(intent);
+            }
+        };
+        missing_person_button.setOnClickListener(missingPersonListener);
+
+        View.OnClickListener shelterListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingImmediateShelter.class);
+                startActivity(intent);
+            }
+        };
+        shelter_button.setOnClickListener(shelterListener);
+
+        View.OnClickListener emotionalListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingDepressed.class);
+                startActivity(intent);
+            }
+
+        };
+        mental_button.setOnClickListener(emotionalListener);
+
+        View.OnClickListener moneyListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MappingEmergencyMoney.class);
+                startActivity(intent);
+            }
+        };
+        money_button.setOnClickListener(moneyListener);
 
 //        Intent intent= new Intent(this, MappingImmediateHelp.class);
 //        startActivity(intent);
     }
 
-    private void loadInfo(final String url) {
+    public void getData(String url1, int zipcode, String url2) {
+        SharedPreferences pref = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
+        SettingsActivity settingsActivity = new SettingsActivity();
+        zipCode = pref.getInt("user zipcode", -1);
 
-        RequestQueue queue = Volley.newRequestQueue(MainActivity.this);
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+        if (zipCode == -1) {
+            Toast.makeText(this, "Please enter your zip code in Settings.", Toast.LENGTH_SHORT);
+        } else if (((zipCode <= 10001) || (zipCode >= 11697))) {
+            Toast.makeText(this, "Please enter a valid NYC zip code in Settings", Toast.LENGTH_SHORT).show();
+        }
+        String AB_URL = (url1 + zipCode + url2);
+        final RequestQueue queue = Volley.newRequestQueue(this);
+
+        final StringRequest stringRequest = new StringRequest(Request.Method.GET, AB_URL,
                 new Response.Listener<String>() {
-
                     @Override
                     public void onResponse(String response) {
                         SearchResult searchResult = new Gson().fromJson(response, SearchResult.class);
+                        Log.i("Results : ", searchResult.getPrograms().toString());
 
                         List<Program> programs = searchResult.getPrograms();
+                        Log.i("List: ", programs.toString());
 
-                        if(url.equalsIgnoreCase(IMMEDIATE_SAFETY_URL))
-                            table = "IMMEDIATE SAFETY";
-                        else if(url.equalsIgnoreCase(FOOD_URL))
-                            table = "FOOD BANKS";
-                        else if(url.equalsIgnoreCase(HURT_URL))
-                            table = "HOSPITALS";
-                        else if(url.equalsIgnoreCase(SHELTER_URL))
-                            table = "SHELTERS";
-                        else if(url.equalsIgnoreCase(MISSING_URL))
-                            table = "MISSING PERSON";
-                        else if(url.equalsIgnoreCase(EMOTIONAL_URL))
-                            table = "EMOTIONAL HELP";
-                        else if(url.equalsIgnoreCase(MONEY_URL))
-                            table = "MONEY RESOURCES";
-                        else
-                            table = "";
 
                         for (Program program : searchResult.getPrograms()) {
+                            Log.i("Results : ", program.getName());
+                            Toast.makeText(getApplicationContext(), program.getName(), Toast.LENGTH_SHORT).show();
                             for (ContactInfo contactInfo : program.getNext_steps()) {
-                                String phoneNumber;
                                 if (contactInfo.getChannel().equals("phone")) {
-                                    //ADDING PHONE NUMBER TO DB
-                                    phoneNumber = contactInfo.getContact();
-                                }
-                                else{
-                                    phoneNumber = "Unavailable";
-                                }
+                                    Log.i("Phone Number : ", contactInfo.getContact());
+//                                    Toast.makeText(getApplicationContext(), contactInfo.getContact(), Toast.LENGTH_SHORT).show();
 
-                            for (Offices offices : program.getOffices()) {
-                                Location location = offices.getLocation();
-                                Hours hours = offices.getHours();
-
-                                String hoursString = "Monday: " + hours.getMonday_start() + " - " + hours.getMonday_finish() + "\n" +
-                                        "Tuesday: " + hours.getTuesday_start() + " - " + hours.getTuesday_finish() + "\n" +
-                                        "Wednesday: " + hours.getWednesday_start() + " - " + hours.getWednesday_finish() + "\n" +
-                                        "Thursday: " + hours.getThursday_start() + " - " + hours.getThursday_finish() + "\n" +
-                                        "Friday: " + hours.getFriday_start() + " - " + hours.getFriday_finish() + "\n" +
-                                        "Saturday: " + hours.getSaturday_start() + " - " + hours.getSaturday_finish() + "\n" +
-                                        "Sunday:" + hours.getSunday_start() + " - " + hours.getSunday_finish();
-
-                                try {
-                                    mDatabase.beginTransaction();
-                                    helper.insertRow(program.getName(), offices.getAddress1(), phoneNumber, hoursString, table);
-                                    mDatabase.setTransactionSuccessful();
-                                }
-                                finally{
-                                    mDatabase.endTransaction();
                                 }
                             }
+                            for (Offices offices : program.getOffices()) {
+                                Log.i("Address: ", offices.getAddress1());
+
+                                Location location = offices.getLocation();
+                                Log.i("Latitude : ", String.valueOf(location.getLatitude()));
+                                Log.i("Longitude : ", String.valueOf(location.getLongitude()));
+
+                                Hours hours = offices.getHours();
+                                Log.i("Monday Hours: ", String.valueOf(hours.getMonday_start()) + " - " + String.valueOf(hours.getMonday_finish()));
+                                Log.i("Tuesday Hours: ", String.valueOf(hours.getThursday_start()) + " - " + String.valueOf(hours.getTuesday_finish()));
+                                Log.i("Wednesday Hours: ", String.valueOf(hours.getWednesday_start()) + " - " + String.valueOf(hours.getWednesday_finish()));
+                                Log.i("Thursday Hours: ", String.valueOf(hours.getThursday_start()) + " - " + String.valueOf(hours.getThursday_finish()));
+                                Log.i("Friday Hours: ", String.valueOf(hours.getFriday_start()) + " - " + String.valueOf(hours.getFriday_finish()));
+                                Log.i("Saturday Hours: ", String.valueOf(hours.getSaturday_start()) + " - " + String.valueOf(hours.getSaturday_finish()));
+                                Log.i("Sunday Hours: ", String.valueOf(hours.getSunday_start() + " - " + String.valueOf(hours.getSunday_finish())));
+
                             }
                         }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "That didn't work!", Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplicationContext(), "Please enter a valid zip code", Toast.LENGTH_SHORT).show();
             }
         });
         queue.add(stringRequest);
     }
-
-    public void settingsOnClick(View view) {
-        Intent settingsIntent =  new Intent(this, SettingsActivity.class);
-        startActivity(settingsIntent);
-    }
-
-    private boolean isNetworkAvailable() {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
-    }
-
-    public void loadFromDatabases(){
-
-    }
-
 }
