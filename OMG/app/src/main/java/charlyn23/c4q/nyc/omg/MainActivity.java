@@ -7,6 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.widget.Toast;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -60,6 +61,8 @@ public class MainActivity extends ActionBarActivity {
             loadInfo(MISSING_URL);
             loadInfo(EMOTIONAL_URL);
             loadInfo(MONEY_URL);
+            if(mDatabase != null)
+            Log.d("DATABASE: ", "NOT EMPTY");
         }else if(!isNetworkAvailable()){
             loadFromDatabases();
         }else {

@@ -45,7 +45,6 @@ public class ResourcesHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         onCreate(db);
-
     }
 
     public void insertData(String tableName){
