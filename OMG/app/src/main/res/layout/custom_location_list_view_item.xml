@@ -67,23 +67,7 @@
             android:layout_toRightOf="@id/location_hours_tag"
             android:text="hours here"
             android:textSize="16sp"/>
-        <TextView
-            android:id="@+id/is_open_tag"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/location_hours_tag"
-            android:text="Open Now: "
-            android:textStyle="bold"
-            android:textSize="16sp"/>
 
-        <TextView
-            android:id="@+id/is_open_field"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/location_hours"
-            android:layout_toRightOf="@id/is_open_tag"
-            android:text="Yes/No"
-            android:textSize="16sp"/>
     </RelativeLayout>
 
 
