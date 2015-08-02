@@ -45,7 +45,7 @@
         </activity>
         <activity
             android:name=".MappingImmediateHelp"
-            android:label="@string/title_activity_mapping_immediate_help"
+            android:label="Immediate Help Resources"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
@@ -58,37 +58,37 @@
 
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:label="Settings"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingImmediateFood"
-            android:label="@string/title_activity_mapping_immediate_food"
+            android:label="Immediate Food Resources"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingMissingPerson"
-            android:label="@string/title_activity_mapping_missing_person"
+            android:label="Missing Persons Resources"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingImmediateShelter"
-            android:label="@string/title_activity_mapping_immediate_shelter"
+            android:label="Resources For Immediate Shelter"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingDepressed"
-            android:label="@string/title_activity_mapping_depressed"
+            android:label="Resources For Depression"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
         <activity
             android:name=".MappingEmergencyMoney"
-            android:label="@string/title_activity_mapping_emergency_money"
+            android:label="Resources For Cash"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden">
         </activity>
