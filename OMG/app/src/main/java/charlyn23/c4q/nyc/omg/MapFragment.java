@@ -69,9 +69,6 @@ public class MapFragment extends SupportMapFragment {
                         .position(new LatLng(lat, lon))
                         .title(programList1.get(i).getName()));
 
-
-
-                //TODO check if valid phone Number!!!
                 marker.setSnippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact());
                 marker.isInfoWindowShown();
 
