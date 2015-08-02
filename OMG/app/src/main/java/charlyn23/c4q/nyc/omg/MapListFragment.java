@@ -47,9 +47,10 @@ public class MapListFragment extends android.support.v4.app.Fragment {
     }
 
     public void updateData(List<Program> eventDataList) {
-        adapter.clear();
+       if(adapter!=null) {
+           adapter.clear();
+       }
         adapter.addAll(eventDataList);
-       // list.addAll(eventDataList);
         adapter.notifyDataSetChanged();
     }
     private class ListAdapter extends ArrayAdapter {
@@ -75,16 +76,16 @@ public class MapListFragment extends android.support.v4.app.Fragment {
             phoneNumberView.setText(phoneNumber);
             String hours = "Monday: " + list.get(position).getOffices().get(0).getHours().getMonday_start() + " - " + list.get(position).getOffices().get(0).getHours().getMonday_finish() + "\nTuesday: " + list.get(position).getOffices().get(0).getHours().getTuesday_start() + " - " + list.get(position).getOffices().get(0).getHours().getTuesday_finish() + "\nWednesday: " + list.get(position).getOffices().get(0).getHours().getWednesday_start() + " - " + list.get(position).getOffices().get(0).getHours().getWednesday_finish() + "\nThursday: " + list.get(position).getOffices().get(0).getHours().getThursday_start() + " - " + list.get(position).getOffices().get(0).getHours().getThursday_finish() + "\nFriday: " + list.get(position).getOffices().get(0).getHours().getFriday_start() + " - " + list.get(position).getOffices().get(0).getHours().getFriday_finish();
 
-//            if (!list.get(position).getOffices().get(position).getHours().getSaturday_start().equals("")){
-//
-//                hours += "\nSaturday: "+
-//            list.get(position).getOffices().get(position).getHours().getSaturday_start() + " - " + list.get(position).getOffices().get(position).getHours().getSaturday_finish();
-//        }
-//                   if(!list.get(position).getOffices().get(position).getHours().getSaturday_start().equals( ""))
-//
-//        {
-//            hours += "\nSunday:" + list.get(position).getOffices().get(position).getHours().getSunday_start() + "-" + list.get(position).getOffices().get(position).getHours().getSunday_finish();
-//        }
+            if (!list.get(position).getOffices().get(0).getHours().getSaturday_start().equals("")){
+
+                hours += "\nSaturday: "+
+            list.get(position).getOffices().get(0).getHours().getSaturday_start() + " - " + list.get(position).getOffices().get(0).getHours().getSaturday_finish();
+        }
+                   if(!list.get(position).getOffices().get(0).getHours().getSaturday_start().equals( ""))
+
+        {
+            hours += "\nSunday:" + list.get(position).getOffices().get(0).getHours().getSunday_start() + "-" + list.get(position).getOffices().get(0).getHours().getSunday_finish();
+        }
             TextView hoursView=(TextView) rowView.findViewById(R.id.location_hours);
             hoursView.setText(hours);
 

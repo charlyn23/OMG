@@ -94,6 +94,7 @@ public class MappingImmediateHelp extends ActionBarActivity {
                         }
 
                         mapListFragment.updateData(programs);
+                        mapFragment.loadPlaces(programs);
 
                     }
                 }, new Response.ErrorListener() {
