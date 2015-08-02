@@ -25,7 +25,7 @@
    <Button
        android:layout_width="@dimen/settings_button_width_height"
        android:layout_height="@dimen/settings_button_width_height"
-       android:background="@drawable/settings_icon"/>
+       android:background="@drawable/settings_icon" />
     </LinearLayout>
 
 
@@ -159,29 +159,28 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/sos_button"
-            android:layout_width="@dimen/emergency_buttons_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="SOS"
+            android:onClick="textAllYourFamilyMember"
             android:background="@drawable/red_square"
             android:textColor="@color/emergency_buttons_text_color"
             android:textStyle="bold"
-            android:textSize="@dimen/emergency_buttons_text_size"
-            android:fontFamily="sans-serif-thin"/>
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="match_parent"/>
+            android:fontFamily="sans-serif-thin"
+            android:padding="-100dp" />
+
         <Button
             android:id="@+id/button_911"
-            android:layout_width="@dimen/emergency_buttons_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/red_square"
             android:text="911"
             android:textColor="@color/emergency_buttons_text_color"
             android:textStyle="bold"
-            android:textSize="@dimen/emergency_buttons_text_size"
-            android:fontFamily="sans-serif-thin"/>
+            android:fontFamily="sans-serif-thin"
+            android:onClick="call911" />
     </LinearLayout>
 
     <ImageButton
