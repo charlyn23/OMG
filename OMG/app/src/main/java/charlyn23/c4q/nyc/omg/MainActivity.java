@@ -30,10 +30,7 @@ public class MainActivity extends Activity {
 //    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
 
     final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
-    String url2;
     int zipCode;
-    String AB_URL;
-    Button not_safe_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
