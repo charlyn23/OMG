@@ -10,13 +10,16 @@ import android.view.View;
 public class EmergencyButtons extends Activity {
 
 
+
+
     //Sends an SMS message to another device.
 
-    public void textAllYourFamilyMember(){
+    public void textAllYourFamilyMember(String firstFam, String secondFam, String thirdFam){
+        String text = "Please help me, I really need you guys.";
 
-        // This is a fixed number. but needs to make it an input
-
-        sendSMS("5556", "Hi You got a message!");
+        sendSMS(firstFam,text);
+        sendSMS(secondFam, text);
+        sendSMS(thirdFam,text);
 
     }
 
