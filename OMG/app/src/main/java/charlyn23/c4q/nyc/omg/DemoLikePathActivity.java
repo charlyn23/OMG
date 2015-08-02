@@ -1,4 +1,5 @@
-package com.ogaclejapan.arclayout.demo;
+package charlyn23.c4q.nyc.omg;
+
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -20,6 +21,7 @@ import com.ogaclejapan.arclayout.ArcLayout;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class DemoLikePathActivity extends ActionBarActivity implements View.OnClickListener {
 

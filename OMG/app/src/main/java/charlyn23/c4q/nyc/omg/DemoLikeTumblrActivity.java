@@ -1,4 +1,5 @@
-package com.ogaclejapan.arclayout.demo;
+package charlyn23.c4q.nyc.omg;
+
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -19,10 +20,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.ogaclejapan.arclayout.ArcLayout;
-import com.ogaclejapan.arclayout.demo.widget.ClipRevealFrame;
-
 import java.util.ArrayList;
 import java.util.List;
+
+import charlyn23.c4q.nyc.omg.widget.ClipRevealFrame;
+
+
 
 public class DemoLikeTumblrActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -33,14 +36,14 @@ public class DemoLikeTumblrActivity extends ActionBarActivity implements View.On
   ArcLayout arcLayout;
   View centerItem;
 
-  public static void startActivity(Context context, Demo demo) {
+  public static void startActivity(Context context, charlyn23.c4q.nyc.omg.Demo demo) {
     Intent intent = new Intent(context, DemoLikeTumblrActivity.class);
     intent.putExtra(KEY_DEMO, demo.name());
     context.startActivity(intent);
   }
 
-  private static Demo getDemo(Intent intent) {
-    return Demo.valueOf(intent.getStringExtra(KEY_DEMO));
+  private static charlyn23.c4q.nyc.omg.Demo getDemo(Intent intent) {
+    return charlyn23.c4q.nyc.omg.Demo.valueOf(intent.getStringExtra(KEY_DEMO));
   }
 
   @Override
@@ -48,7 +51,7 @@ public class DemoLikeTumblrActivity extends ActionBarActivity implements View.On
     super.onCreate(savedInstanceState);
     setContentView(R.layout.like_a_tumblr);
 
-    Demo demo = getDemo(getIntent());
+    charlyn23.c4q.nyc.omg.Demo demo = getDemo(getIntent());
 
     ActionBar bar = getSupportActionBar();
     bar.setTitle(demo.titleResId);
@@ -176,11 +179,11 @@ public class DemoLikeTumblrActivity extends ActionBarActivity implements View.On
     item.setTranslationY(dy);
 
     Animator anim = ObjectAnimator.ofPropertyValuesHolder(
-        item,
-        AnimatorUtils.scaleX(0f, 1f),
-        AnimatorUtils.scaleY(0f, 1f),
-        AnimatorUtils.translationX(dx, 0f),
-        AnimatorUtils.translationY(dy, 0f)
+            item,
+            charlyn23.c4q.nyc.omg.AnimatorUtils.scaleX(0f, 1f),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.scaleY(0f, 1f),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.translationX(dx, 0f),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.translationY(dy, 0f)
     );
 
     anim.setInterpolator(new DecelerateInterpolator());
@@ -194,10 +197,10 @@ public class DemoLikeTumblrActivity extends ActionBarActivity implements View.On
 
     Animator anim = ObjectAnimator.ofPropertyValuesHolder(
         item,
-        AnimatorUtils.scaleX(1f, 0f),
-        AnimatorUtils.scaleY(1f, 0f),
-        AnimatorUtils.translationX(0f, dx),
-        AnimatorUtils.translationY(0f, dy)
+            charlyn23.c4q.nyc.omg.AnimatorUtils.scaleX(1f, 0f),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.scaleY(1f, 0f),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.translationX(0f, dx),
+            charlyn23.c4q.nyc.omg.AnimatorUtils.translationY(0f, dy)
     );
 
     anim.setInterpolator(new DecelerateInterpolator());

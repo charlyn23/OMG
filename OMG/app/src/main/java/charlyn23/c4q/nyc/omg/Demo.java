@@ -1,4 +1,4 @@
-package com.ogaclejapan.arclayout.demo;
+package charlyn23.c4q.nyc.omg;
 
 import android.content.Context;
 
@@ -37,7 +37,7 @@ public enum Demo {
   ADVANCED_PATH(R.string.title_advanced_path, 0, 0, null) {
     @Override
     public void startActivity(Context context) {
-      DemoLikePathActivity.startActivity(context, this);
+      charlyn23.c4q.nyc.omg.DemoLikePathActivity.startActivity(context, this);
     }
   };
 

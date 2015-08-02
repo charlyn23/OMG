@@ -1,4 +1,4 @@
-package com.ogaclejapan.arclayout.demo;
+package charlyn23.c4q.nyc.omg;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -24,7 +24,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnIte
     ArrayAdapter<String> demoAdapter = new ArrayAdapter<String>(this,
         android.R.layout.simple_list_item_1);
 
-    for (Demo demo : Demo.values()) {
+    for (charlyn23.c4q.nyc.omg.Demo demo : charlyn23.c4q.nyc.omg.Demo.values()) {
       demoAdapter.add(getString(demo.titleResId));
     }
 
@@ -50,7 +50,7 @@ public class MainActivity extends ActionBarActivity implements AbsListView.OnIte
 
   @Override
   public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-    Demo demo = Demo.values()[position];
+    charlyn23.c4q.nyc.omg.Demo demo = charlyn23.c4q.nyc.omg.Demo.values()[position];
     demo.startActivity(this);
   }
 

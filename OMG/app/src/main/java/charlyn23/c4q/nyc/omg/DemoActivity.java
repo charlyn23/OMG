@@ -1,4 +1,4 @@
-package com.ogaclejapan.arclayout.demo;
+package charlyn23.c4q.nyc.omg;
 
 import android.content.Context;
 import android.content.Intent;
@@ -17,27 +17,29 @@ import android.widget.Toast;
 
 import com.ogaclejapan.arclayout.ArcLayout;
 
+
+
 public class DemoActivity extends ActionBarActivity implements View.OnClickListener {
 
   private static final String KEY_DEMO = "demo";
   Toast toast = null;
   ArcLayout arcLayout;
 
-  public static void startActivity(Context context, Demo demo) {
+  public static void startActivity(Context context, charlyn23.c4q.nyc.omg.Demo demo) {
     Intent intent = new Intent(context, DemoActivity.class);
     intent.putExtra(KEY_DEMO, demo.name());
     context.startActivity(intent);
   }
 
-  private static Demo getDemo(Intent intent) {
-    return Demo.valueOf(intent.getStringExtra(KEY_DEMO));
+  private static charlyn23.c4q.nyc.omg.Demo getDemo(Intent intent) {
+    return charlyn23.c4q.nyc.omg.Demo.valueOf(intent.getStringExtra(KEY_DEMO));
   }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    Demo demo = getDemo(getIntent());
+    charlyn23.c4q.nyc.omg.Demo demo = getDemo(getIntent());
 
     setContentView(demo.layoutResId);
     arcLayout = (ArcLayout) findViewById(R.id.arc_layout);
