@@ -1,9 +1,13 @@
 package charlyn23.c4q.nyc.omg;
 
+import android.app.Activity;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+
+import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -16,9 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-
 import java.util.List;
-
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
@@ -26,16 +28,14 @@ import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends Activity {
 //    public final String AB_URL = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/10101/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety";
 
     final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
-     String url2;
+    String url2;
     int zipCode;
-     String AB_URL;
+    String AB_URL;
     Button not_safe_button;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,19 +53,20 @@ public class MainActivity extends ActionBarActivity {
         Button pet_help_button= (Button)findViewById(R.id.pet_help_button);
         Button missing_person_button= (Button)findViewById(R.id.missing_person_button);
 
+
         View.OnClickListener notSafeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData("https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/", zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=immediate%20safety");
-            }
+                Intent intent=new Intent(MainActivity.this, MappingImmediateHelp.class);
+                startActivity(intent);            }
         };
         not_safe_button.setOnClickListener(notSafeListener);
 
         View.OnClickListener foodListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20food");
-            }
+                Intent intent=new Intent(MainActivity.this, MappingImmediateFood.class);
+                startActivity(intent);            }
         };
         food_button.setOnClickListener(foodListener);
 
@@ -73,14 +74,16 @@ public class MainActivity extends ActionBarActivity {
 
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, url2);
-            }
+                Intent intent=new Intent(MainActivity.this, MappingMissingPerson.class);
+                startActivity(intent);            }
         };
 
+        hurt_button.setOnClickListener(hurtListener);
         View.OnClickListener missingPersonListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=help%20find%20missing%20persons");
+                Intent intent=new Intent(MainActivity.this, MappingMissingPerson.class);
+                startActivity(intent);
             }
         };
         missing_person_button.setOnClickListener(missingPersonListener);
@@ -88,24 +91,26 @@ public class MainActivity extends ActionBarActivity {
         View.OnClickListener shelterListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20shelter");
-            }
+                Intent intent=new Intent(MainActivity.this, MappingImmediateShelter.class);
+                startActivity(intent);            }
         };
         shelter_button.setOnClickListener(shelterListener);
 
         View.OnClickListener emotionalListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=psychiatric%20emergency%20services");
+                Intent intent=new Intent(MainActivity.this, MappingDepressed.class);
+                startActivity(intent);
             }
+
         };
         mental_button.setOnClickListener(emotionalListener);
 
         View.OnClickListener moneyListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getData(url1, zipCode, "/programs?api_key=b0f6c6a6a8be355fc04be76ab3f0c5e6&serviceTag=emergency%20payments");
-            }
+                Intent intent=new Intent(MainActivity.this, MappingEmergencyMoney.class);
+                startActivity(intent);            }
         };
         money_button.setOnClickListener(moneyListener);
 
