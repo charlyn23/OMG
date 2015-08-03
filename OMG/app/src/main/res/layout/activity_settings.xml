@@ -203,7 +203,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="20dp">
 
         <TextView
             android:id="@+id/emergency_contact_1_info_tv"
@@ -225,6 +225,40 @@
 
         <TextView
             android:id="@+id/emergency_contact_3_info_tv"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="20dp">
+
+        <TextView
+            android:id="@+id/emergency_num_1_info_tv"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
+
+        <TextView
+            android:id="@+id/emergency_num_2_info_tv"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-thin" />
+
+        <TextView
+            android:id="@+id/emergency_num_3_info_tv"
             android:textStyle="bold"
             android:gravity="center"
             android:layout_weight="1"
