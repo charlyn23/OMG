@@ -66,7 +66,8 @@ public class MainActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(MainActivity.this, MappingImmediateHelp.class);
-                startActivity(intent);            }
+                startActivity(intent);
+            }
         };
         not_safe_button.setOnClickListener(notSafeListener);
 
@@ -120,7 +121,7 @@ public class MainActivity extends Activity {
     }
 
     public long[] getPhoneNumbers(){
-        SharedPreferences prefs = getSharedPreferences("MyPresFile", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         SettingsActivity mSettingsActivity = new SettingsActivity();
 
         long savedContactOneNumTxt = prefs.getLong("Contact Number One", 0);
@@ -131,6 +132,7 @@ public class MainActivity extends Activity {
         mphoneNumbers[0] = savedContactOneNumTxt;
         mphoneNumbers[1] = savedContactTwoNumTxt;
         mphoneNumbers[2] = savedContactThreeNumTxt;
+        Log.i("Phone#s: " , String.valueOf(savedContactOneNumTxt));
 
         return mphoneNumbers;
 
@@ -260,6 +262,7 @@ public class MainActivity extends Activity {
         }
 
         Toast.makeText(this,"Emergency Text Messages Sent",Toast.LENGTH_LONG).show();
+        Log.i("Text : ", text.toString());
 
     }
 
@@ -281,6 +284,7 @@ public class MainActivity extends Activity {
     public void sendSMS(String phoneNumber, String message){
         SmsManager sms = SmsManager.getDefault();
         sms.sendTextMessage(phoneNumber, null, message, null, null);
+        Log.i("Phone number : ", "" + String.valueOf(phoneNumber));
     }
 
 }
