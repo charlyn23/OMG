@@ -39,7 +39,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/background">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,22 +83,22 @@
                 android:fontFamily="sans-serif-thin"/>
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal">-->
 
-            <ImageView
-                android:layout_width="@dimen/emergency_buttons_width"
-                android:layout_height="@dimen/emergency_buttons_height"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/omgcircle"
-                android:layout_gravity="center"/>
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/emergency_buttons_width"-->
+                <!--android:layout_height="@dimen/emergency_buttons_height"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:src="@drawable/omgcircle"-->
+                <!--android:layout_gravity="center"/>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -138,6 +139,15 @@
                 android:textSize="@dimen/emergency_buttons_text_size"
                 android:fontFamily="sans-serif-thin"/>
         </LinearLayout>
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/background"-->
+            <!--android:layout_alignTop="@+id/emergency_buttons"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginTop="149dp" />-->
     </LinearLayout>
     <LinearLayout
         android:id="@+id/sos_and_911"
@@ -146,7 +156,8 @@
         android:layout_below="@id/emergency_buttons"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        >
         <Button
             android:id="@+id/sos_button"
             android:layout_width="@dimen/emergency_buttons_height"
@@ -156,7 +167,6 @@
             android:onClick="textAllYourFamilyMember"
             android:background="@drawable/redroundbox"
             android:textColor="@color/emergency_buttons_text_color"
-            android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-thin"
@@ -172,11 +182,13 @@
             android:layout_height="@dimen/emergency_buttons_width"
             android:background="@drawable/redroundbox"
             android:text="911"
-            android:textColor="@color/emergency_buttons_text_color" android:textStyle="bold"
+            android:textColor="@color/emergency_buttons_text_color"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-thin"
-            android:onClick="call911" />
+            android:onClick="call911"
+            android:padding="-100dp"
+            />
     </LinearLayout>
 
 </RelativeLayout>

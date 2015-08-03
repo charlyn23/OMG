@@ -1,16 +1,8 @@
 package charlyn23.c4q.nyc.omg;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.widget.Toast;
-import android.util.Log;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
-import android.view.View;
 import android.content.SharedPreferences;
 import android.location.Address;
 import android.location.Criteria;
@@ -18,11 +10,13 @@ import android.location.Geocoder;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -30,18 +24,17 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
-import java.sql.SQLException;
-import java.util.List;
+
 import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
+
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
 import charlyn23.c4q.nyc.omg.model.Offices;
 import charlyn23.c4q.nyc.omg.model.Program;
 import charlyn23.c4q.nyc.omg.model.SearchResult;
-import android.view.View;
 
 public class MainActivity extends Activity {
     private final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
@@ -125,6 +118,41 @@ public class MainActivity extends Activity {
         };
         money_button.setOnClickListener(moneyListener);
     }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+          int SPLASH_TIME_OUT = 3000;
+
+
+        new Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
+            @Override
+            public void run() {
+                // This method will be executed once the timer is over
+                // Start your app main activity
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+
+                // close this activity
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+
 
     public long[] getPhoneNumbers(){
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
