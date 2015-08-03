@@ -47,7 +47,6 @@ public class MainActivity extends Activity {
     ArrayList<String> emergencyList;
     ListView sosListView;
     AlertDialog.Builder builder;
-
     String AB_URL;
     Button not_safe_button;
     Button mNineOneOne, mTextForHelp;
