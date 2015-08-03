@@ -60,7 +60,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDCllmEySUxY5oUkiJ4sUxSgFH-XJstyJ4"
+            android:value="AIzaSyBYK_cEP8YIVWhufSTuRljghKFLrHTtKAs"
             android:screenOrientation="portrait"
             android:configChanges="keyboardHidden"/>
 
