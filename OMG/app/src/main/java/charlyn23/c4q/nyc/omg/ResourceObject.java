@@ -23,7 +23,7 @@ public class ResourceObject {
     }
 
     ResourceObject(){
-        
+
     }
 
     public String getAddress() {

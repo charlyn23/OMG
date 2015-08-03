@@ -26,6 +26,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.HashMap;
 import java.util.List;
 
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
@@ -42,6 +43,8 @@ public class MappingImmediateHelp extends ActionBarActivity {
     MapFragment mapFragment;
     MapListFragment mapListFragment;
     List<Program> programs;
+    HashMap<String,List<Program>> help;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,38 +64,7 @@ public class MappingImmediateHelp extends ActionBarActivity {
                     @Override
                     public void onResponse(String response) {
                         SearchResult searchResult = new Gson().fromJson(response, SearchResult.class);
-                        Log.i("Results : ", searchResult.getPrograms().toString());
-
-
                         programs = searchResult.getPrograms();
-                        Log.i("List: ", programs.toString());
-
-                        for (Program program : searchResult.getPrograms()) {
-                            Log.i("Results : ", program.getName());
-                            for (ContactInfo contactInfo : program.getNext_steps()) {
-                                if (contactInfo.getChannel().equals("phone")) {
-                                    Log.i("Phone Number : ", contactInfo.getContact());
-                                }
-                            }
-                            for (Offices offices : program.getOffices()) {
-                                Log.i("Address: ", offices.getAddress1());
-
-                                Location location = offices.getLocation();
-                                Log.i("Latitude : ", String.valueOf(location.getLatitude()));
-                                Log.i("Longitude : ", String.valueOf(location.getLongitude()));
-
-                                Hours hours = offices.getHours();
-                                Log.i("Monday Hours: ", String.valueOf(hours.getMonday_start()) + " - " + String.valueOf(hours.getMonday_finish()));
-                                Log.i("Tuesday Hours: ", String.valueOf(hours.getThursday_start()) + " - " + String.valueOf(hours.getTuesday_finish()));
-                                Log.i("Wednesday Hours: ", String.valueOf(hours.getWednesday_start()) + " - " + String.valueOf(hours.getWednesday_finish()));
-                                Log.i("Thursday Hours: ", String.valueOf(hours.getThursday_start()) + " - " + String.valueOf(hours.getThursday_finish()));
-                                Log.i("Friday Hours: ", String.valueOf(hours.getFriday_start()) + " - " + String.valueOf(hours.getFriday_finish()));
-                                Log.i("Saturday Hours: ", String.valueOf(hours.getSaturday_start()) + " - " + String.valueOf(hours.getSaturday_finish()));
-                                Log.i("Sunday Hours: ", String.valueOf(hours.getSunday_start() + " - " + String.valueOf(hours.getSunday_finish())));
-
-                            }
-                        }
-
                         mapListFragment.updateData(programs);
                         mapFragment.loadPlaces(programs);
 

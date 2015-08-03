@@ -64,10 +64,6 @@ public class MainActivity extends Activity {
         Button money_button= (Button)findViewById(R.id.money_button);
         Button missing_person_button= (Button)findViewById(R.id.missing_person_button);
 
-
-
-
-
         View.OnClickListener notSafeListener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -84,8 +80,8 @@ public class MainActivity extends Activity {
         };
         food_button.setOnClickListener(foodListener);
 
-        Intent intent= new Intent(this, MappingImmediateHelp.class);
-        startActivity(intent);
+//        Intent intent= new Intent(this, MappingImmediateHelp.class);
+//        startActivity(intent);
         View.OnClickListener hurtListener = new View.OnClickListener() {
 
             @Override
@@ -145,7 +141,6 @@ public class MainActivity extends Activity {
         return mphoneNumbers;
 
     }
-
 
     public void getData(String url1, int zipcode, String url2) {
         SharedPreferences pref = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);

@@ -35,7 +35,6 @@ public class ResourcesHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL(SQL_CREATE_TABLE_SAFETY);
         db.execSQL(SQL_CREATE_TABLE_FOOD);
-        db.execSQL(SQL_CREATE_TABLE_HURT);
         db.execSQL(SQL_CREATE_TABLE_MISSING_PERSON);
         db.execSQL(SQL_CREATE_TABLE_SHELTER);
         db.execSQL(SQL_CREATE_TABLE_MONEY);
@@ -88,14 +87,6 @@ public class ResourcesHelper extends SQLiteOpenHelper {
                     ResourceEntry.COLUMN_HOURS+" TEXT"+
                     " )";
 
-    private static final String SQL_CREATE_TABLE_HURT =
-            "CREATE TABLE" + "HOSPITALS" +" (" +
-                    ResourceEntry._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                    ResourceEntry.COLUMN_OFFICE+" TEXT," +
-                    ResourceEntry.COLUMN_ADDRESS+" TEXT," +
-                    ResourceEntry.COLUMN_PHONE_NUMBER+" TEXT," +
-                    ResourceEntry.COLUMN_HOURS+" TEXT"+
-                    " )";
 
     private static final String SQL_CREATE_TABLE_SHELTER =
             "CREATE TABLE" + "SHELTERS" +" (" +
