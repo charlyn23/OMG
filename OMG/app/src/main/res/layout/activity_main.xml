@@ -22,7 +22,6 @@
         android:textSize="@dimen/main_title"
         android:fontFamily="sans-serif-light"
         android:paddingTop="@dimen/activity_horizontal_margin"/>
-
     </LinearLayout>
 
 
@@ -63,11 +62,13 @@
                 android:textSize="@dimen/emergency_buttons_text_size"
                 android:fontFamily="sans-serif-thin"/>
             <Button
-                android:id="@+id/hurt_button"
+                android:id="@+id/missing_person_button"
                 android:layout_width="@dimen/emergency_buttons_width"
                 android:layout_height="@dimen/emergency_buttons_height"
-                android:text="@string/hurt"
+                android:text="@string/missing_person"
                 android:background="@drawable/roundedsteel"
+                android:layout_marginRight="10dp"
+                android:layout_marginEnd="10dp"
                 android:textColor="@color/emergency_buttons_text_color"
                 android:textSize="@dimen/emergency_buttons_text_size"
                 android:fontFamily="sans-serif-thin"/>
@@ -78,32 +79,19 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:orientation="horizontal">
-                <Button
-                    android:id="@+id/missing_person_button"
-                    android:layout_width="@dimen/emergency_buttons_width"
-                    android:layout_height="@dimen/emergency_buttons_height"
-                    android:text="@string/missing_person"
-                    android:background="@drawable/roundedsteel"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:textColor="@color/emergency_buttons_text_color"
-                    android:textSize="@dimen/emergency_buttons_text_size"
-                    android:fontFamily="sans-serif-thin"/>
+            <Space
+                android:layout_width="@dimen/emergency_buttons_width"
+                android:layout_height="@dimen/emergency_buttons_height" />
+
             <ImageView
                 android:layout_width="@dimen/emergency_buttons_width"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/emergency_buttons_height"
                 android:layout_marginRight="10dp"
-                android:src="@drawable/omgcircle"/>
+                android:src="@drawable/omgcircle"
+                android:layout_gravity="center"
+                />
 
-                <Button
-                    android:id="@+id/mental_button"
-                    android:layout_width="@dimen/emergency_buttons_width"
-                    android:layout_height="@dimen/emergency_buttons_height"
-                    android:text="@string/mental"
-                    android:background="@drawable/roundedsteel"
-                    android:textColor="@color/emergency_buttons_text_color"
-                    android:textSize="@dimen/emergency_buttons_text_size"
-                    android:fontFamily="sans-serif-thin"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -135,10 +123,10 @@
                 android:textSize="@dimen/emergency_buttons_text_size"
                 android:fontFamily="sans-serif-thin"/>
             <Button
-                android:id="@+id/pet_help_button"
+                android:id="@+id/mental_button"
                 android:layout_width="@dimen/emergency_buttons_width"
                 android:layout_height="@dimen/emergency_buttons_height"
-                android:text="@string/pet_help"
+                android:text="@string/mental"
                 android:background="@drawable/roundedsteel"
                 android:textColor="@color/emergency_buttons_text_color"
                 android:textSize="@dimen/emergency_buttons_text_size"
@@ -156,29 +144,28 @@
         android:orientation="horizontal">
         <Button
             android:id="@+id/sos_button"
-            android:layout_width="@dimen/emergency_buttons_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
             android:text="SOS"
+            android:onClick="textAllYourFamilyMember"
             android:background="@drawable/red_square"
             android:textColor="@color/emergency_buttons_text_color"
             android:textStyle="bold"
-            android:textSize="@dimen/emergency_buttons_text_size"
-            android:fontFamily="sans-serif-thin"/>
-        <Space
-            android:layout_width="100dp"
-            android:layout_height="match_parent"/>
+            android:fontFamily="sans-serif-thin"
+            android:padding="-100dp" />
+
         <Button
             android:id="@+id/button_911"
-            android:layout_width="@dimen/emergency_buttons_width"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/red_square"
             android:text="911"
             android:textColor="@color/emergency_buttons_text_color"
             android:textStyle="bold"
-            android:textSize="@dimen/emergency_buttons_text_size"
-            android:fontFamily="sans-serif-thin"/>
+            android:fontFamily="sans-serif-thin"
+            android:onClick="call911" />
     </LinearLayout>
 
     <ImageView
