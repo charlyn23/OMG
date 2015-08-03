@@ -16,18 +16,15 @@ public class ResourceObject {
     Program program = new Program();
     ContactInfo contactInfo;
 
-
-
-
-
 //    List<Program> programs = mainActivity.searchResult;
-
 
     ResourceObject resourceObject(String name, String address, String phone, String hours) {
         return null;
     }
 
-    ResourceObject(){};
+    ResourceObject(){
+
+    }
 
     public String getAddress() {
 

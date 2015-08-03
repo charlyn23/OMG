@@ -12,11 +12,9 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
-
 import charlyn23.c4q.nyc.omg.model.Program;
 
 
@@ -55,6 +53,7 @@ public class MapListFragment extends android.support.v4.app.Fragment {
        }
         adapter.addAll(eventDataList);
         adapter.notifyDataSetChanged();
+
     }
     private class ListAdapter extends ArrayAdapter {
         public ListAdapter(Context context, int resource, List<Program> items) {
@@ -114,9 +113,7 @@ public class MapListFragment extends android.support.v4.app.Fragment {
             hoursView.setText(hours);
 
             return rowView;
-
         }
     }
-
 }
 
