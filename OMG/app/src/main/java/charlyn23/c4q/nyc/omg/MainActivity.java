@@ -49,7 +49,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        SettingsActivity settingsActivity = new SettingsActivity();
 
 
         Button not_safe_button = (Button)findViewById(R.id.not_safe_button);
@@ -117,8 +116,6 @@ public class MainActivity extends Activity {
 
 //        Intent intent= new Intent(this, MappingImmediateHelp.class);
 //        startActivity(intent);
-
-
 
     }
 
