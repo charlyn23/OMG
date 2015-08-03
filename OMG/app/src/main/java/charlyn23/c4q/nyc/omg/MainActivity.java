@@ -120,12 +120,15 @@ public class MainActivity extends Activity {
     }
 
     public long[] getPhoneNumbers(){
-        SharedPreferences prefs = getSharedPreferences("MyPresFile", MODE_PRIVATE);
+        SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         SettingsActivity mSettingsActivity = new SettingsActivity();
 
         long savedContactOneNumTxt = prefs.getLong("Contact Number One", 0);
+        Log.i("Get Phone Number 1 : ", savedContactOneNumTxt + "");
         long savedContactTwoNumTxt = prefs.getLong("Contact Number Two", 0);
+        Log.i("Get Phone Number 2 : ", savedContactTwoNumTxt + "");
         long savedContactThreeNumTxt = prefs.getLong("Contact Number Three", 0);
+        Log.i("Get Phone Number 3 : ", savedContactThreeNumTxt + "");
 
         long[] mphoneNumbers = new long[3];
         mphoneNumbers[0] = savedContactOneNumTxt;
@@ -214,7 +217,7 @@ public class MainActivity extends Activity {
     //Sends an SMS message to another device.
 
     public void textAllYourFamilyMember(View v){
-        String text = "Please help me, I really need you guys.";
+        String text = "This is an Automated message from OMG emergency app. I am in danger.";
 
         SharedPreferences sharedPreferences=getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         String name= sharedPreferences.getString("user name", "");
@@ -256,7 +259,8 @@ public class MainActivity extends Activity {
         for(int i=0; i< mPhoneNumbers.length; i++){
             String mFamily = "";
             mFamily = Long.toString(mPhoneNumbers[i]);
-            sendSMS(mFamily,text);
+            Log.i("Phone Number : ", mFamily);
+            sendSMS(mFamily, text);
         }
 
         Toast.makeText(this,"Emergency Text Messages Sent",Toast.LENGTH_LONG).show();
