@@ -18,6 +18,7 @@
         android:layout_height="wrap_content"
         android:text="@string/main_title"
         android:layout_weight="1"
+        android:gravity="center"
         android:textSize="@dimen/main_title"
         android:fontFamily="sans-serif-light"
         android:paddingTop="@dimen/activity_horizontal_margin"/>
