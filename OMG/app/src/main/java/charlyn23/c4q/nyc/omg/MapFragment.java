@@ -52,28 +52,30 @@ public class MapFragment extends SupportMapFragment {
         //googleMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("You are here!").snippet("Consider yourself located"));
     }
 
-    public void loadPlaces(List<Program> programsList){
+    public void loadPlaces(final List<Program> programsList){
         if(programList1!=null) {
             programList1.clear();
         }
         if(programsList!=null) {
             programList1.addAll(programsList);
 
-            for (int i = 0; i < programList1.size(); i++) {
+            for ( int i=0;i<programList1.size();i++) {
 
                 float lat = programList1.get(i).getOffices().get(0).getLocation().getLatitude();
                 float lon = programList1.get(i).getOffices().get(0).getLocation().getLongitude();
 
 
-                Marker marker=googleMap.addMarker(new MarkerOptions()
-                        .position(new LatLng(lat, lon))
-                        .title(programList1.get(i).getName()));
+            Marker marker= googleMap.addMarker(new MarkerOptions()
+                    .position(new LatLng(lat, lon))
+                      .title(programList1.get(i).getName()));
 
                 marker.setSnippet("Phone Number:" + programList1.get(i).getNext_steps().get(0).getContact());
                 marker.isInfoWindowShown();
 
             }
         }
+
+
 
         //TODO fix title pages
         //TODO onMarkerClick update listView

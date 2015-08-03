@@ -175,6 +175,8 @@ public class SettingsActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 editor = prefs.edit();
+
+
                 editor.putString(ContactName, nameDialogueET.getText().toString()).apply();
                 editor.putLong(ContactNumber, Long.parseLong(phoneDialogueET.getText().toString())).apply();
 
