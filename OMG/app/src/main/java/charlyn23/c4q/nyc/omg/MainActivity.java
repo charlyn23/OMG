@@ -11,6 +11,7 @@ import android.location.Geocoder;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -126,7 +127,43 @@ public class MainActivity extends Activity {
         money_button.setOnClickListener(moneyListener);
     }
 
-    public ArrayList<Long> getPhoneNumbers(){
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        setContentView(R.layout.activity_splash);
+          int SPLASH_TIME_OUT = 3000;
+
+
+        new Handler().postDelayed(new Runnable() {
+
+            /*
+             * Showing splash screen with a timer. This will be useful when you
+             * want to show case your app logo / company
+             */
+
+            @Override
+            public void run() {
+                // This method will be executed once the timer is over
+                // Start your app main activity
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+
+                // close this activity
+                finish();
+            }
+        }, SPLASH_TIME_OUT);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+    }
+
+
+
+    public long[] getPhoneNumbers(){
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         //SettingsActivity mSettingsActivity = new SettingsActivity();
 
@@ -137,11 +174,11 @@ public class MainActivity extends Activity {
         long savedContactThreeNumTxt = prefs.getLong("Contact Number Three", 0);
         Log.i("Get Phone Number 3 : ", savedContactThreeNumTxt + "");
 
-        ArrayList<Long> mphoneNumbers = new ArrayList<>();
+       long[] mphoneNumbers = { savedContactOneNumTxt, savedContactTwoNumTxt, savedContactThreeNumTxt};
 
-        mphoneNumbers.add(savedContactOneNumTxt);
-        mphoneNumbers.add(savedContactTwoNumTxt);
-        mphoneNumbers.add(savedContactThreeNumTxt);
+//        mphoneNumbers.add(savedContactOneNumTxt);
+//        mphoneNumbers.add(savedContactTwoNumTxt);
+//        mphoneNumbers.add(savedContactThreeNumTxt);
         Log.i("Phone#s: ", String.valueOf(savedContactOneNumTxt));
 
         return mphoneNumbers;
@@ -314,7 +351,7 @@ public class MainActivity extends Activity {
     }
 
     public void textAllYourFamilyMember(String msg){
-        String text = msg +" please call me soon";
+        String text = msg +" Please call me soon";
 
         SharedPreferences sharedPreferences=getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         String name= sharedPreferences.getString("user name", "");
@@ -322,9 +359,14 @@ public class MainActivity extends Activity {
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
+
         android.location.Location myLocation = locationManager.getLastKnownLocation(provider);
-        double latitude = myLocation.getLatitude();
-        double longitude = myLocation.getLongitude();
+        double latitude = 0;
+        double longitude = 0;
+
+             latitude = myLocation.getLatitude();
+             longitude = myLocation.getLongitude();
+
 
         Geocoder geocoder;
         List<Address> addresses = null;
@@ -351,13 +393,13 @@ public class MainActivity extends Activity {
 
         text+="\nLocation: "+currentLocation;
 
-        text+="\n "+name;
+        text+="\n-"+name+"\nSent From OMG Emergency App";
 
-        ArrayList<Long> mPhoneNumbers = getPhoneNumbers();
+        long[] mPhoneNumbers = getPhoneNumbers();
 
-        for(int i=0; i< mPhoneNumbers.size(); i++){
+        for(int i=0; i< mPhoneNumbers.length; i++){
             String mFamily;
-            mFamily = Long.toString(mPhoneNumbers.get(i));
+            mFamily = Long.toString(mPhoneNumbers[i]);
             Log.i("Phone Number : ", mFamily);
             sendSMS(mFamily, text);
         }
