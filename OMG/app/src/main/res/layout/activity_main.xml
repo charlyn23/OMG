@@ -164,7 +164,7 @@
             android:layout_height="@dimen/emergency_buttons_width"
             android:layout_gravity="start"
             android:text="SOS"
-            android:onClick="textAllYourFamilyMember"
+            android:onClick="popUpList"
             android:background="@drawable/redroundbox"
             android:textColor="@color/emergency_buttons_text_color"
             android:layout_marginRight="10dp"

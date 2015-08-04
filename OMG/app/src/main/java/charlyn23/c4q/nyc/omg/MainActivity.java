@@ -1,6 +1,7 @@
 package charlyn23.c4q.nyc.omg;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -13,8 +14,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -26,6 +31,7 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -39,7 +45,9 @@ import charlyn23.c4q.nyc.omg.model.SearchResult;
 public class MainActivity extends Activity {
     private final static String url1 = "https://searchbertha-hrd.appspot.com/_ah/api/search/v1/zipcodes/";
     int zipCode;
-
+    ArrayList<String> emergencyList;
+    ListView sosListView;
+    AlertDialog.Builder builder;
     String AB_URL;
     Button not_safe_button;
     Button mNineOneOne, mTextForHelp;
@@ -119,6 +127,7 @@ public class MainActivity extends Activity {
         money_button.setOnClickListener(moneyListener);
     }
 
+
     @Override
     protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
@@ -156,7 +165,7 @@ public class MainActivity extends Activity {
 
     public long[] getPhoneNumbers(){
         SharedPreferences prefs = getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
-        SettingsActivity mSettingsActivity = new SettingsActivity();
+        //SettingsActivity mSettingsActivity = new SettingsActivity();
 
         long savedContactOneNumTxt = prefs.getLong("Contact Number One", 0);
         Log.i("Get Phone Number 1 : ", savedContactOneNumTxt + "");
@@ -165,11 +174,12 @@ public class MainActivity extends Activity {
         long savedContactThreeNumTxt = prefs.getLong("Contact Number Three", 0);
         Log.i("Get Phone Number 3 : ", savedContactThreeNumTxt + "");
 
-        long[] mphoneNumbers = new long[3];
-        mphoneNumbers[0] = savedContactOneNumTxt;
-        mphoneNumbers[1] = savedContactTwoNumTxt;
-        mphoneNumbers[2] = savedContactThreeNumTxt;
-        Log.i("Phone#s: " , String.valueOf(savedContactOneNumTxt));
+       long[] mphoneNumbers = { savedContactOneNumTxt, savedContactTwoNumTxt, savedContactThreeNumTxt};
+
+//        mphoneNumbers.add(savedContactOneNumTxt);
+//        mphoneNumbers.add(savedContactTwoNumTxt);
+//        mphoneNumbers.add(savedContactThreeNumTxt);
+        Log.i("Phone#s: ", String.valueOf(savedContactOneNumTxt));
 
         return mphoneNumbers;
 
@@ -228,8 +238,120 @@ public class MainActivity extends Activity {
 
     //Sends an SMS message to another device.
 
-    public void textAllYourFamilyMember(View v){
-        String text = "This is an Automated message from OMG emergency app. I am in danger.";
+
+
+    //pull up the 911 ready to call.
+    //add toast
+
+    public void call911(View view){
+        String policeAndFireDep = "911";
+
+        Intent callNineOneOne = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + policeAndFireDep));
+
+
+        if(callNineOneOne.resolveActivity(getPackageManager()) != null){
+            startActivity(callNineOneOne);
+        }
+    }
+
+
+    public void sendSMS(String phoneNumber, String message){
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(phoneNumber, null, message, null, null);
+        Log.i("Phone number : ", "" + String.valueOf(phoneNumber));
+    }
+
+    public void popUpList(View v) {
+        emergencyList = new ArrayList<>();
+        String notSafe = "I'm not safe. I am going to look for some help.";
+        String needFood = "I'm hungry and cannot afford to buy food. I am looking for food kitchens now.";
+        String needShelter = "Somethings wrong. I need shelter.";
+        String needMoney = "I ran into some financial trouble. I need some money. I'm going to look for help now.";
+        String distress = "I'm feeling low and blue.";
+        String someonesMissing = "I need help finding someone.";
+
+        emergencyList.add(notSafe);
+        emergencyList.add(needFood);
+        emergencyList.add(needShelter);
+        emergencyList.add(needMoney);
+        emergencyList.add(distress);
+        emergencyList.add(someonesMissing);
+
+        builder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = this.getLayoutInflater();
+        View view = inflater.inflate(R.layout.pop_up_sos, null);
+        builder.setView(view);
+        final AlertDialog alertDialog = builder.create();
+
+        alertDialog.show();
+
+        sosListView = (ListView) view.findViewById(R.id.popList);
+        ArrayAdapter arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, emergencyList);
+        sosListView.setAdapter(arrayAdapter);
+
+
+        sosListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String msg;
+                switch (position) {
+                    case 0:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                    case 1:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                    case 2:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                    case 3:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                    case 4:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                    case 5:
+                        msg = emergencyList.get(position);
+                        Log.d("MESSAGELoop", msg);
+                        textAllYourFamilyMember(msg);
+                        alertDialog.dismiss();
+
+                        break;
+
+                }
+
+
+            }
+        });
+    }
+
+    public void textAllYourFamilyMember(String msg){
+        String text = msg +" Please call me soon";
 
         SharedPreferences sharedPreferences=getSharedPreferences("MyPrefsFile", MODE_PRIVATE);
         String name= sharedPreferences.getString("user name", "");
@@ -237,9 +359,14 @@ public class MainActivity extends Activity {
         LocationManager locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         Criteria criteria = new Criteria();
         String provider = locationManager.getBestProvider(criteria, true);
+
         android.location.Location myLocation = locationManager.getLastKnownLocation(provider);
-        double latitude = myLocation.getLatitude();
-        double longitude = myLocation.getLongitude();
+        double latitude = 0;
+        double longitude = 0;
+
+             latitude = myLocation.getLatitude();
+             longitude = myLocation.getLongitude();
+
 
         Geocoder geocoder;
         List<Address> addresses = null;
@@ -264,12 +391,14 @@ public class MainActivity extends Activity {
         Log.i("Location: ",currentLocation);
 
 
-        text+="\nLocation"+currentLocation;
+        text+="\nLocation: "+currentLocation;
+
+        text+="\n-"+name+"\nSent From OMG Emergency App";
 
         long[] mPhoneNumbers = getPhoneNumbers();
 
         for(int i=0; i< mPhoneNumbers.length; i++){
-            String mFamily = "";
+            String mFamily;
             mFamily = Long.toString(mPhoneNumbers[i]);
             Log.i("Phone Number : ", mFamily);
             sendSMS(mFamily, text);
@@ -279,26 +408,4 @@ public class MainActivity extends Activity {
         Log.i("Text : ", text.toString());
 
     }
-
-    //pull up the 911 ready to call.
-    //add toast
-
-    public void call911(View view){
-        String policeAndFireDep = "911";
-
-        Intent callNineOneOne = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + policeAndFireDep));
-
-
-        if(callNineOneOne.resolveActivity(getPackageManager()) != null){
-            startActivity(callNineOneOne);
-        }
-    }
-
-
-    public void sendSMS(String phoneNumber, String message){
-        SmsManager sms = SmsManager.getDefault();
-        sms.sendTextMessage(phoneNumber, null, message, null, null);
-        Log.i("Phone number : ", "" + String.valueOf(phoneNumber));
-    }
-
 }
