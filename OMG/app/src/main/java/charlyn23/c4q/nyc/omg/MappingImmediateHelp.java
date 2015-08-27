@@ -1,6 +1,7 @@
 package charlyn23.c4q.nyc.omg;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
@@ -29,6 +30,7 @@ import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.List;
 
+import charlyn23.c4q.nyc.omg.db.ResourcesHelper;
 import charlyn23.c4q.nyc.omg.model.ContactInfo;
 import charlyn23.c4q.nyc.omg.model.Hours;
 import charlyn23.c4q.nyc.omg.model.Location;
@@ -77,21 +79,26 @@ public class MappingImmediateHelp extends ActionBarActivity {
         });
         queue.add(stringRequest);
         getInfoFromCache();
+
+
+
     }
 
     public void saveInfoToCache(){
-        File file;
-        FileOutputStream outputStream;
-        try {
-            // file = File.createTempFile("MyCache", null, getCacheDir());
-            file = new File(getCacheDir(), "MyCache");
+//        File file;
+//        FileOutputStream outputStream;
+//        try {
+//            // file = File.createTempFile("MyCache", null, getCacheDir());
+//            file = new File(getCacheDir(), "MyCache");
+//
+//            outputStream = new FileOutputStream(file);
+//            //outputStream.write(content.getBytes());
+//            outputStream.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
-            outputStream = new FileOutputStream(file);
-            //outputStream.write(content.getBytes());
-            outputStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public void getInfoFromCache(){

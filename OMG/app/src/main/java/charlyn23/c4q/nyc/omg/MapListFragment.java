@@ -4,6 +4,7 @@ package charlyn23.c4q.nyc.omg;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
+import charlyn23.c4q.nyc.omg.db.ResourcesHelper;
 import charlyn23.c4q.nyc.omg.model.Program;
 
 
@@ -27,6 +30,7 @@ public class MapListFragment extends android.support.v4.app.Fragment {
     List<Program> list= new ArrayList<>();
             //= new ArrayList<Program>();
     ListAdapter adapter;
+    SQLiteDatabase db;
     public MapListFragment() {
         // Required empty public constructor
     }
@@ -42,7 +46,6 @@ public class MapListFragment extends android.support.v4.app.Fragment {
         listView=(ListView) fragmentView.findViewById(R.id.listView);
         adapter=new ListAdapter(getActivity(),R.id.location_name,list);
         listView.setAdapter(adapter);
-
 
         return fragmentView;
     }
@@ -111,6 +114,9 @@ public class MapListFragment extends android.support.v4.app.Fragment {
         }
             TextView hoursView=(TextView) rowView.findViewById(R.id.location_hours);
             hoursView.setText(hours);
+
+            //TODO insert row to db
+            ResourcesHelper.insertRow(ResourceObject.getName(), ResourceObject.getAddress(), ResourceObject.getPhone(), ResourceObject.getHours(), "IMMEDIATE HELP", db);
 
             return rowView;
         }

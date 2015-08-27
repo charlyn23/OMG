@@ -8,13 +8,13 @@ import charlyn23.c4q.nyc.omg.model.Program;
  */
 public class ResourceObject {
     //name, address, phone, hoursForEachDay,
-    String name;
-    String address;
-    String phone;
-    String hours;
+    public static String name;
+    public static String address;
+    public static String phone;
+    public static String hours;
     MainActivity mainActivity = new MainActivity();
-    Program program = new Program();
-    ContactInfo contactInfo;
+    public static Program program = new Program();
+    public static ContactInfo contactInfo;
 
 //    List<Program> programs = mainActivity.searchResult;
 
@@ -26,7 +26,7 @@ public class ResourceObject {
 
     }
 
-    public String getAddress() {
+    public static String getAddress() {
 
         return address;
     }
@@ -35,7 +35,7 @@ public class ResourceObject {
         this.address = address;
     }
 
-    public String getHours() {
+    public static String getHours() {
         return hours;
     }
 
@@ -43,7 +43,7 @@ public class ResourceObject {
         this.hours = hours;
     }
 
-    public String getName() {
+    public static String getName() {
         program.getName();
         return name;
     }
@@ -52,7 +52,7 @@ public class ResourceObject {
         this.name = name;
     }
 
-    public String getPhone() {
+    public static String getPhone() {
         contactInfo.getContact();
         return phone;
     }

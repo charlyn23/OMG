@@ -51,13 +51,13 @@ public class ResourcesHelper extends SQLiteOpenHelper {
         db.delete(tableName, null, null);
     }
 
-    public void insertRow(String resourceName, String address, String phoneNumber, String hours,String tableName){
-        SQLiteDatabase db = getWritableDatabase();
+    public static void insertRow(String resourceName, String address, String phoneNumber, String hours, String tableName, SQLiteDatabase db){
         ContentValues values = new ContentValues();
         values.put(ResourceEntry.COLUMN_OFFICE,resourceName);
         values.put(ResourceEntry.COLUMN_ADDRESS,address);
         values.put(ResourceEntry.COLUMN_PHONE_NUMBER,phoneNumber);
         values.put(ResourceEntry.COLUMN_HOURS,hours);
+
 
         db.insertOrThrow(tableName,null,values);
     }
