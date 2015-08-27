@@ -116,7 +116,7 @@ public class MapListFragment extends android.support.v4.app.Fragment {
             hoursView.setText(hours);
 
             //TODO insert row to db
-            ResourcesHelper.insertRow(ResourceObject.getName(), ResourceObject.getAddress(), ResourceObject.getPhone(), ResourceObject.getHours(), "IMMEDIATE HELP", db);
+//            ResourcesHelper.insertRow(ResourceObject.getName(), ResourceObject.getAddress(), ResourceObject.getPhone(), ResourceObject.getHours(), "IMMEDIATE HELP", db);
 
             return rowView;
         }

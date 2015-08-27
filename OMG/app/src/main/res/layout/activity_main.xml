@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:layout_gravity="center"
     tools:context=".MainActivity"
     android:background="@android:color/white">
 
@@ -19,9 +18,18 @@
         android:layout_height="wrap_content"
         android:text="@string/main_title"
         android:layout_weight="1"
+        android:gravity="center"
         android:textSize="@dimen/main_title"
         android:fontFamily="sans-serif-light"
         android:paddingTop="@dimen/activity_horizontal_margin"/>
+
+        <ImageView
+            android:src="@drawable/gear"
+            android:layout_gravity="bottom"
+            android:onClick="settingsOnClick"
+            android:layout_width="30dp"
+            android:layout_height="30dp"/>
+
     </LinearLayout>
 
 
@@ -30,13 +38,14 @@
         android:layout_below="@id/title_and_settings_icon"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="@dimen/activity_horizontal_margin"
         android:paddingBottom="@dimen/activity_vertical_margin"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@drawable/background">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal"
             android:layout_marginTop="20dp">
             <Button
@@ -74,30 +83,28 @@
                 android:fontFamily="sans-serif-thin"/>
         </LinearLayout>
 
-        <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:orientation="horizontal">
-            <Space
-                android:layout_width="@dimen/emergency_buttons_width"
-                android:layout_height="@dimen/emergency_buttons_height" />
+        <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:gravity="center"-->
+                <!--android:layout_marginTop="20dp"-->
+                <!--android:orientation="horizontal">-->
 
-            <ImageView
-                android:layout_width="@dimen/emergency_buttons_width"
-                android:layout_height="@dimen/emergency_buttons_height"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:src="@drawable/omgcircle"
+            <!--<ImageView-->
+                <!--android:layout_width="@dimen/emergency_buttons_width"-->
+                <!--android:layout_height="@dimen/emergency_buttons_height"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:src="@drawable/omgcircle"-->
+                <!--android:layout_gravity="center"/>-->
 
-                android:layout_gravity="center"
-                />
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:gravity="center"
             android:layout_marginTop="20dp">
             <Button
                 android:id="@+id/money_button"
@@ -132,6 +139,15 @@
                 android:textSize="@dimen/emergency_buttons_text_size"
                 android:fontFamily="sans-serif-thin"/>
         </LinearLayout>
+
+        <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/background"-->
+            <!--android:layout_alignTop="@+id/emergency_buttons"-->
+            <!--android:layout_alignParentLeft="true"-->
+            <!--android:layout_alignParentStart="true"-->
+            <!--android:layout_marginTop="149dp" />-->
     </LinearLayout>
     <LinearLayout
         android:id="@+id/sos_and_911"
@@ -139,18 +155,18 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/emergency_buttons"
         android:layout_marginTop="20dp"
-
-        android:orientation="horizontal">
+        android:gravity="center"
+        android:orientation="horizontal"
+        >
         <Button
             android:id="@+id/sos_button"
             android:layout_width="@dimen/emergency_buttons_height"
             android:layout_height="@dimen/emergency_buttons_width"
             android:layout_gravity="start"
             android:text="SOS"
-            android:onClick="textAllYourFamilyMember"
+            android:onClick="popUpList"
             android:background="@drawable/redroundbox"
             android:textColor="@color/emergency_buttons_text_color"
-            android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-thin"
@@ -167,20 +183,12 @@
             android:background="@drawable/redroundbox"
             android:text="911"
             android:textColor="@color/emergency_buttons_text_color"
-            android:textStyle="bold"
             android:layout_marginRight="10dp"
             android:layout_marginEnd="10dp"
             android:fontFamily="sans-serif-thin"
-            android:onClick="call911" />
+            android:onClick="call911"
+            android:padding="-100dp"
+            />
     </LinearLayout>
-
-    <ImageView
-        android:src="@drawable/gear"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="settingsOnClick"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        />
 
 </RelativeLayout>

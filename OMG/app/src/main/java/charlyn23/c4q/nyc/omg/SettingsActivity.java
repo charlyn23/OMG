@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -32,9 +33,12 @@ public class SettingsActivity extends Activity {
     ImageButton emergencyContactOne;
     ImageButton emergencyContactTwo;
     ImageButton emergencyContactThree;
-    TextView contactOneInfo;
-    TextView contactTwoInfo;
-    TextView contactThreeInfo;
+    TextView contactOneNameInfo;
+    TextView contactTwoNameInfo;
+    TextView contactThreeNameInfo;
+    TextView contactOneNumInfo;
+    TextView contactTwoNumInfo;
+    TextView contactThreeNumInfo;
 
 
     @Override
@@ -72,26 +76,29 @@ public class SettingsActivity extends Activity {
             long savedContactThreeNumTxt = prefs.getLong("Contact Number Three", 0);
 
             if(savedContactOneNameTxt.equals("null") && savedContactOneNumTxt == 0){
-                contactOneInfo.setText("");
+                contactOneNameInfo.setText("");
                 emergencyContactOne.setImageResource(R.drawable.ic_add_white_24dp);
             } else {
-                contactOneInfo.setText(savedContactOneNameTxt);
+                contactOneNameInfo.setText(savedContactOneNameTxt);
+                contactOneNumInfo.setText(savedContactOneNumTxt + "");
                 emergencyContactOne.setImageResource(R.drawable.ic_check_white_24dp);
             }
 
             if(savedContactTwoNameTxt.equals("null") && savedContactTwoNumTxt == 0){
-                contactTwoInfo.setText("");
+                contactTwoNameInfo.setText("");
                 emergencyContactTwo.setImageResource(R.drawable.ic_add_white_24dp);
             } else {
-                contactTwoInfo.setText(savedContactTwoNameTxt);
+                contactTwoNameInfo.setText(savedContactTwoNameTxt);
+                contactTwoNumInfo.setText(savedContactTwoNumTxt + "");
                 emergencyContactTwo.setImageResource(R.drawable.ic_check_white_24dp);
             }
 
             if(savedContactThreeNameTxt.equals("null") && savedContactThreeNumTxt == 0){
-                contactThreeInfo.setText("");
+                contactThreeNameInfo.setText("");
                 emergencyContactThree.setImageResource(R.drawable.ic_add_white_24dp);
             } else {
-                contactThreeInfo.setText(savedContactThreeNameTxt);
+                contactThreeNameInfo.setText(savedContactThreeNameTxt);
+                contactThreeNumInfo.setText(savedContactThreeNumTxt + "");
                 emergencyContactThree.setImageResource(R.drawable.ic_check_white_24dp);
             }
 
@@ -109,9 +116,14 @@ public class SettingsActivity extends Activity {
         emergencyContactTwo = (ImageButton) findViewById(R.id.emergency_contact_2);
         emergencyContactThree = (ImageButton) findViewById(R.id.emergency_contact_3);
 
-        contactOneInfo = (TextView) findViewById(R.id.emergency_contact_1_info_tv);
-        contactTwoInfo = (TextView) findViewById(R.id.emergency_contact_2_info_tv);
-        contactThreeInfo = (TextView) findViewById(R.id.emergency_contact_3_info_tv);
+        contactOneNameInfo = (TextView) findViewById(R.id.emergency_contact_1_info_tv);
+        contactTwoNameInfo = (TextView) findViewById(R.id.emergency_contact_2_info_tv);
+        contactThreeNameInfo = (TextView) findViewById(R.id.emergency_contact_3_info_tv);
+
+        contactOneNumInfo = (TextView) findViewById(R.id.emergency_num_1_info_tv);
+        contactTwoNumInfo = (TextView) findViewById(R.id.emergency_num_2_info_tv);
+        contactThreeNumInfo = (TextView) findViewById(R.id.emergency_num_3_info_tv);
+
     }
 
     public void saveOnClick (View view) {
@@ -139,7 +151,7 @@ public class SettingsActivity extends Activity {
     }
 
     public void emergencyContactOneOnClick(View view) {
-        emergencyContactBox("Contact Name One", "Contact Num One");
+        emergencyContactBox("Contact Name One", "Contact Number One");
     }
 
     public void emergencyContactTwoOnClick(View view) {
@@ -163,8 +175,12 @@ public class SettingsActivity extends Activity {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 editor = prefs.edit();
+
+
                 editor.putString(ContactName, nameDialogueET.getText().toString()).apply();
                 editor.putLong(ContactNumber, Long.parseLong(phoneDialogueET.getText().toString())).apply();
+
+                Log.i("Contact Number : " , Long.parseLong(phoneDialogueET.getText().toString()) + "" );
 
                 //sets contact info underneath imageButton
                 setEmergencyContactInfoDisplay(ContactName);
@@ -182,19 +198,32 @@ public class SettingsActivity extends Activity {
             emergencyContactOne.setImageResource(R.drawable.ic_check_white_24dp);
 
             String contactNameTxt = prefs.getString("Contact Name One", "null");
-            contactOneInfo.setText(contactNameTxt);
+            contactOneNameInfo.setText(contactNameTxt);
+
+            long ContactOneNumTxt = prefs.getLong("Contact Number One", 0);
+            Log.i("Contact One Num Text : ", ContactOneNumTxt + "");
+            contactOneNumInfo.setText(ContactOneNumTxt + "");
 
         }else if (Contact.equals("Contact Name Two")) {
             emergencyContactTwo.setImageResource(R.drawable.ic_check_white_24dp);
 
             String contactNameTxt = prefs.getString("Contact Name Two", "null");
-            contactTwoInfo.setText(contactNameTxt);
+            contactTwoNameInfo.setText(contactNameTxt);
+
+            long ContactTwoNumTxt = prefs.getLong("Contact Number Two", 0);
+            Log.i("Contact Two Num Text : ", ContactTwoNumTxt + "");
+            contactTwoNumInfo.setText(ContactTwoNumTxt + "");
 
         }else if (Contact.equals("Contact Name Three")) {
             emergencyContactThree.setImageResource(R.drawable.ic_check_white_24dp);
 
             String contactNameTxt = prefs.getString("Contact Name Three", "null");
-            contactThreeInfo.setText(contactNameTxt);
+            contactThreeNameInfo.setText(contactNameTxt);
+
+            long ContactThreeNumTxt = prefs.getLong("Contact Number Three", 0);
+            Log.i("Contact Two Num Text : ", ContactThreeNumTxt + "");
+            contactThreeNumInfo.setText(ContactThreeNumTxt + "");
+
         }
     }
     
