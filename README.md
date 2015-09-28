@@ -1,8 +1,19 @@
 # OMG
-Robin Hood Hack-a-thon App - 
+Robin Hood Hack-a-thon App  
 
-The official app for with it hits the fan in New York City. We are providing people 
-with a resource for semi-emergencies. Think: You need shelter because your house burned down or food but cannot afford to buy it on your own or maybe you need money to pay your bills because this months check won't cut it or you're feeling sad because someone is missing. During these times we usually don't know where to go for help, a lot of people aren't even aware that there is help out there. This application allows you to connect with those you love most, alerting them that something is not okay, while simultaneously being proactive and searching for places near you that can provide you with the help you need. No need to panic or look helplessly through the yellow pages. We will give you the organization's address, phone number, e-mail address(if applicable), directions on how to get there and buttons that link you directly to what you, the user, needs!
+When things go wrong, we need to be reminded that everything is going to be ok. OMG is a tool for that moment you have a personal emergency. Simply select your situation and OMG will carefully curate a collection of resources in your immediate area for your immediate need. Everything about OMG was meticulously designed get get help fast because every moment after a crisis is crucial. This is the epitome of a streamlined user-experience: Opening the app to talking to a real-live person that can help you IN 4 CLICKS. That’s faster than Google. Fast than 411. That’s even faster than calling your mom. That’s the kind of efficiency you deserve in a time of personal crisis. 
+
+
+Think: You need shelter because your house burned down or food but cannot afford to buy it on your own or maybe you need money to pay your bills because this month's check won't cut it or you're feeling sad because someone is missing. During these times we usually don't know where to go for help, and many of us are unaware that there is help out there.
+
+  OMG allows you to connect with those you love most: 
+  - Alert them that something is not okay instantly with prepared text templates that OMG sends on your command to your saved emergency contacts
+  
+  OMG connects you to the resources you need:
+  - Be proactive. OMG finds places near you that can provide you with precisely the help you need. No need to panic. OMG provides the organizations' address, phone number, e-mail address(if applicable), directions on how to get there and buttons that link you directly to what you, the user, needs!
+  
+  OMG connects you to the appropiate emergency authorities
+  - If you are in immediate danger, always call 911 first. Did you open OMG instead of calling 911? The 911 button can save crucial seconds and connect you to emergency services. 
 
 ![alt tag](https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/557a1a28549609.55c57a6499329.png)
 
